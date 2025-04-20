@@ -89,12 +89,12 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 
 ## Arquitectura de la Información 
 [Estructura de Navegación](Link Whimsical)
-
+https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz
 ---
 
 ## Prototipo de diseño 
 [Figma - Prototipo de Gestión de Productos](Link Figma)
-
+https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1
 ---
 ## Liberías usadas con Angular
 - Bootstrap
