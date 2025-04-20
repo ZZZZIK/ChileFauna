@@ -1,0 +1,60 @@
+<ion-content class="login-background">
+  <div class="login-container">
+
+    <h2 class="login-title">Registrarse</h2>
+
+    <div class="form-section">
+      <ion-avatar class="avatar">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-avatar>
+
+      <div class="form-fields">
+        <ion-label position="stacked">Nombre Completo</ion-label>
+        <ion-item lines="none">
+          <ion-input class="nombre-input"></ion-input>
+        </ion-item>
+
+        <ion-label position="stacked">Rut</ion-label>
+        <ion-item lines="none">
+          <ion-input class="rut-input"></ion-input>
+        </ion-item>
+
+        <ion-label position="stacked">Región</ion-label>
+        <ion-item lines="none">
+          <ion-input class="region-input"></ion-input>
+        </ion-item>
+
+        <ion-label position="stacked">Comuna</ion-label>
+        <ion-item lines="none">
+          <ion-input class="comuna-input"></ion-input>
+        </ion-item>
+
+        <ion-label position="stacked">Correo Electrónico</ion-label>
+        <ion-item lines="none">
+          <ion-input type="email" class="correo-input"></ion-input>
+        </ion-item>
+
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-item lines="none">
+          <ion-input type="password" class="password-input"></ion-input>
+        </ion-item>
+
+        <ion-label position="stacked">Confirmar Contraseña</ion-label>
+        <ion-item lines="none">
+          <ion-input type="password" class="confirm-password-input"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="checkbox-container">
+          <ion-checkbox slot="start" class="checkbox-terminos"></ion-checkbox>
+          <ion-label style="color: #333333;">Aceptar Términos y condiciones</ion-label>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <ion-button expand="block" color="success" class="login-button">INGRESAR</ion-button>
+      <ion-button [routerLink]="['/tabs/tab4']" expand="block" color="medium" class="cancel-button">CANCELAR</ion-button>
+    </div>
+
+  </div>
+</ion-content>

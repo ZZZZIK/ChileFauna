@@ -1,0 +1,7 @@
+{
+  "name": "ChileFauna",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

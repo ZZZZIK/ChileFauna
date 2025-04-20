@@ -1,0 +1,40 @@
+<ion-header>
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar
+    [(ngModel)]="textoBusqueda"
+    placeholder="Buscar">
+  </ion-searchbar>
+
+  <div class="categorias-container">
+    <button
+      *ngFor="let categoria of ['Carnivoro', 'Herbivoro']"
+      [class.activa]="categoria === categoriaSeleccionada"
+      (click)="filtrarPorCategoria(categoria)">
+      {{ categoria }}
+    </button>
+  </div>
+
+
+  <ion-card *ngFor="let animal of animalesFiltrados">
+
+    <button class="favorito-btn" (click)="toggleFavorito(animal)">
+      <ion-icon [name]="animal.favorito ? 'heart' : 'heart-outline'"></ion-icon>
+    </button>
+
+    <div class="animal-container">
+      <img [src]="animal.imagen" alt="Imagen de {{ animal.nombre }}">
+      <div class="animal-info">
+        <ion-card-header>
+          <ion-card-title class="animal-name">{{ animal.nombre }}</ion-card-title>
+          <ion-card-subtitle>{{ animal.especie }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          {{ animal.categoria }}
+        </ion-card-content>
+      </div>
+    </div>
+  </ion-card>
+</ion-content>

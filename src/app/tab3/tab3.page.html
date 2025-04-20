@@ -1,0 +1,21 @@
+<ion-header>
+
+</ion-header>
+
+
+<ion-content class="login-background">
+  <h2>Noticias</h2>
+
+  <div class="noticias-grid">
+    <ion-card *ngFor="let noticia of noticias">
+      <img [src]="noticia.imagen" alt="imagen noticia" />
+      <ion-card-header>
+        <ion-card-title>{{ noticia.titulo }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>{{ noticia.fuente }}</strong></p>
+        <p>{{ noticia.descripcion }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

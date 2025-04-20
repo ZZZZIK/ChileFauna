@@ -1,0 +1,128 @@
+ion-content {
+    --background: #bfdbb8;
+  }
+  
+  ion-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+  }
+  
+  ion-searchbar {
+    --color: #000;
+    --background: #ffffff;
+    --border-radius: 12px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+  }
+  
+  #container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  .animal-name {
+    color: #2e7d32; 
+    font-weight: bold;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+  
+  .animal-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .animal-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .animal-info {
+    flex: 1;
+  }
+  
+  .favorito-btn {
+    position: absolute;
+    top: 10px;
+    left: auto;
+    right: 10px;
+    background-color: #48e14d;
+    border: none;
+    border-radius: 25%;
+    padding: 6px;
+    z-index: 10;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .favorito-btn ion-icon {
+    font-size: 20px;
+    color: #0b640b; 
+  }
+  
+  .categorias-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 16px;
+  
+    button {
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 16px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #333;
+      transition: 0.3s;
+    }
+  
+    .activa {
+      background-color: #81c784; 
+      color: white;
+      font-weight: bold;
+    }
+  }
+  .image-header {
+    padding: 0;
+    margin: 0;
+  
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+  
