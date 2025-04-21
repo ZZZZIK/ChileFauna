@@ -99,6 +99,9 @@ https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-
 ## Liberías usadas con Angular
 - Bootstrap
 
+## Consideraciones adicionales
+- RECORDAR USAR MODO DIA EN EL NAVEGADOR, NO HAY MODO OSCURO 
+
 ## Tecnologías
 - **Ionic Framework**
 - **Angular**
