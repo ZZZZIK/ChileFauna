@@ -1,0 +1,15 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+/* Siempre texto negro */
+:root {
+  --ion-text-color: #000000; /* Fuerza el texto siempre negro */
+  --ion-item-background: #ffffff; /* Fondo blanco para los inputs */
+  --ion-item-color: #000000; /* Texto negro para los inputs */
+}
+
+/* Modo oscuro */
+body[color-theme='dark'] {
+  --ion-text-color: #000000; /* Asegura que el texto en modo oscuro también sea negro */
+  --ion-item-background: #ffffff; /* Fondo blanco para los inputs */
+  --ion-item-color: #000000; /* Texto negro para los inputs */
+}
