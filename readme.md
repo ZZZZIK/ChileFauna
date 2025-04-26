@@ -88,19 +88,21 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 
 
 ## Arquitectura de la Información 
-[Estructura de Navegación](Link Whimsical)
-https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz
+[Estructura de Navegación](https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz)
+---
+
+## Experiencia de Usuario
+En el desarrollo de la aplicación, hemos considerado la experiencia del usuario, asegurando que la interfaz sea responsiva y se adapte a diferentes dispositivos y tamaños de pantalla. Además, nos hemos enfocado en que la aplicación sea intuitiva y simple de usar, buscando siempre facilitar la interacción del usuario.
 ---
 
 ## Prototipo de diseño 
-[Figma - Prototipo de Gestión de Productos](Link Figma)
-https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1
+[Figma - Prototipo de Gestión de Productos](https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1)
 ---
 ## Liberías usadas con Angular
 - Bootstrap
 
 ## Consideraciones adicionales
-- RECORDAR USAR MODO DIA EN EL NAVEGADOR, NO HAY MODO OSCURO 
+- RECORDAR USAR MODO DIA EN EL NAVEGADOR, NO HAY MODO OSCURO
 
 ## Tecnologías
 - **Ionic Framework**
