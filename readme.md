@@ -13,9 +13,9 @@
 1. [Resumen del Proyecto](#Resumen-del-Proyecto)
 2. [Requerimientos de la Aplicación](#Requerimientos-de-la-Aplicación)
 3. [Estructura de Navegación](#Estructura-de-Navegación)
-4. [Prototipo de Diseño Base - Figma](#Prototipo-de-Diseño-Base-Figma)
 5. [Experiencia de Usuario](#Experiencia-de-Usuario)
-6. [Tecnologías Utilizadas](#Tecnologías-Utilizadas)
+6. [Prototipo de Diseño Base - Figma](#Prototipo-de-Diseño-Base---Figma)
+7. [Tecnologías Utilizadas](#Tecnologías-Utilizadas)
 
 
 ---
