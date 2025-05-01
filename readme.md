@@ -19,11 +19,11 @@
 
 
 ---
-## Resumen del Proyecto
+## 1. Resumen del Proyecto
 Aplicacion enfocada en informar sobre las especies nativas chilenas para su proteccion y reconocimiento. La aplicación contará con datos de las especies, tales como, la ubicación, el grado de peligrosidad y qué hacer ante un eventual encuentro. Además de características adicionales como noticias y un foro asociado.
 
 ---
-## Requerimientos de la Aplicación
+## 2. Requerimientos de la Aplicación
 
 ### Roles de la Aplicación
 - **Usuario General (USRGNL)**: Corresponde a un rol general de la aplicación, que incluye a los usuarios no registrados, usuarios registrados y administradores.
@@ -93,17 +93,17 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 
 ---
 
-[Estructura de Navegación](https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz)
+## 3. [Estructura de Navegación](https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz)
 ---
 
-## Experiencia de Usuario
+## 4. Experiencia de Usuario
   - En el desarrollo de la aplicación, hemos considerado la experiencia del usuario, asegurando que la interfaz sea responsiva y se adapte a diferentes dispositivos y tamaños de pantalla. Además, nos hemos enfocado en que la aplicación sea intuitiva y simple de usar, buscando siempre facilitar la interacción del usuario.
 
 ---
 
-[Prototipo de Diseño Base - Figma](https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1)
+## 5. [Prototipo de Diseño Base - Figma](https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1)
 ---
-## Tecnologías Utilizadas
+## 6. Tecnologías Utilizadas
 - **Ionic (Incluye HTML, CSS & TS): Framework de Desarrollo Web y Móvil**
 - **Angular: Framework de Desarrollo Frontend**
 - **NgModules: Herramienta de Organización**
