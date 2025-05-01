@@ -25,10 +25,10 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 ---
 ## Requerimientos de la Aplicación
 
-### Roles del Sistema
-- **Usuario General**: Corresponde a un rol general de la aplicación, que incluye a los usuarios no registrados, usuarios registrados y administradores.
-- **Usuario Registrado**: Corresponde a un rol específico de la aplicación, este rol corresponde a aquellos usuarios que completan el proceso de registro de la aplicación
-- **Administrador**: Corresponde a un rol específico de la aplicación
+### Roles de la Aplicación
+- **Usuario General (USRGNL)**: Corresponde a un rol general de la aplicación, que incluye a los usuarios no registrados, usuarios registrados y administradores.
+- **Usuario Registrado (USRRGT)**: Corresponde a un rol específico de la aplicación, este rol corresponde a aquellos usuarios que completan el proceso de registro de la aplicación
+- **Administrador (ADM)**: Corresponde a un rol específico de la aplicación
 
 
 ### Requerimientos Funcionales por Rol
@@ -60,8 +60,8 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 - **RF-ADM-05**: El administrador debe poder modificar una noticia.
 - **RF-ADM-06**: El administrador debe poder eliminar una noticia.
 - **RF-ADM-07**: El administrador debe poder crear una publicación con prioridad en el foro. 
-- **RF-ADM-07**: El administrador debe poder modificar cualquier publicación en el foro.
-- **RF-ADM-08**: El administrador debe poder eliminar cualquier publicación en el foro.
+- **RF-ADM-08**: El administrador debe poder modificar cualquier publicación en el foro.
+- **RF-ADM-09**: El administrador debe poder eliminar cualquier publicación en el foro.
 
 ---
 
