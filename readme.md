@@ -1,12 +1,14 @@
-# Presentado por:
+# Proyecto de Aplicación Web y Móvil: ChileFauna 
+
+
+## Autores:
 - Miguel Bernales
 - Pablo Daza
 - Alonso Maurel
 - Monserrath Morales
 - Eduardo Pérez
 
-# Proyecto Aplicación Web y Móvil ChileFauna 
-
+---
 ##  Índice
 1. [Resumen del Proyecto](#resumen-del-proyecto)
 2. [Requerimientos](#requerimientos)
@@ -14,8 +16,9 @@
 3. [Diseño de prototipos](#prototipo-de-diseño)
 4. [Librerías en Angular](#liberías-usadas-con-angular)
 
+---
 ## Resumen del Proyecto
-Aplicacion enfocada en informar sobre las especies nativas chilenas para su proteccion y reconocimiento. La app contará con datos importantes como la zona donde se encuentran, el grado de peligrosidad y qué hacer ante un eventual encuentro. Además de características adicionales como, por ejemplo, noticias y un foro asociado.
+Aplicacion enfocada en informar sobre las especies nativas chilenas para su proteccion y reconocimiento. La aplicación contará con datos de las especies, tales como, la ubicación, el grado de peligrosidad y qué hacer ante un eventual encuentro. Además de características adicionales como noticias y un foro asociado.
 
 ---
 ## Requerimientos
@@ -86,26 +89,25 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 - **RNF-07: Disponibilidad**
   - El sistema debe estar disponible el 99% del tiempo, medido de forma semanal.
 
+---
 
-## Arquitectura de la Información 
 [Estructura de Navegación](https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz)
 ---
 
 ## Experiencia de Usuario
-En el desarrollo de la aplicación, hemos considerado la experiencia del usuario, asegurando que la interfaz sea responsiva y se adapte a diferentes dispositivos y tamaños de pantalla. Además, nos hemos enfocado en que la aplicación sea intuitiva y simple de usar, buscando siempre facilitar la interacción del usuario.
+  - En el desarrollo de la aplicación, hemos considerado la experiencia del usuario, asegurando que la interfaz sea responsiva y se adapte a diferentes dispositivos y tamaños de pantalla. Además, nos hemos enfocado en que la aplicación sea intuitiva y simple de usar, buscando siempre facilitar la interacción del usuario.
 ---
 
-## Prototipo de diseño 
-[Figma - Prototipo de Gestión de Productos](https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1)
+[Prototipo de Diseño Base - Figma](https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1)
 ---
-## Liberías usadas con Angular
-- Bootstrap
-
-## Consideraciones adicionales
-- RECORDAR USAR MODO DIA EN EL NAVEGADOR, NO HAY MODO OSCURO
 
 ## Tecnologías
-- **Ionic Framework**
-- **Angular**
-- **TypeScript**
-- **Figma** 
+- **Ionic (Incluye HTML, CSS & TS): Framework de Desarrollo Web y Móvil**
+- **Angular: Framework de Desarrollo Frontend**
+- **NgModules: Herramienta de Organización**
+- **Figma: Herramienta de Prototipado**
+- **Whimsical: Herramienta de Definición de Estructura de Navegación**
+- **Google Docs: Herramienta Colaborativa para Registro de Ideas Iniciales**
+- **WhatsApp & Discord: Medio de Comunicación del Equipo**
+
+
