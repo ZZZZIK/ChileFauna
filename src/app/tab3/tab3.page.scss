@@ -4,7 +4,7 @@
 .noticias-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 30px;
   }
   
   ion-card {
@@ -17,7 +17,7 @@
   
   ion-card img {
     width: 100%;
-    height: auto;
+    height: 250px;
     object-fit: cover;
   }
   

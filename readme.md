@@ -110,6 +110,6 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 - **Figma: Herramienta de Prototipado**
 - **Whimsical: Herramienta de Definición de Estructura de Navegación**
 - **Google Docs: Herramienta Colaborativa para Registro de Ideas Iniciales**
-- **WhatsApp & Discord: Medio de Comunicación del Equipo**
+- **WhatsApp & Discord: Medios de Comunicación del Equipo**
 
 

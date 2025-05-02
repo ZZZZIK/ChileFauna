@@ -7,7 +7,7 @@
   <h2>Noticias</h2>
 
   <div class="noticias-grid">
-    <ion-card *ngFor="let noticia of noticias">
+    <ion-card *ngFor="let noticia of noticias" [href]="noticia.enlace" target="_blank" rel="noopener">
       <img [src]="noticia.imagen" alt="imagen noticia" />
       <ion-card-header>
         <ion-card-title>{{ noticia.titulo }}</ion-card-title>
