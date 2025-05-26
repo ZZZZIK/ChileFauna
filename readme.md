@@ -1,62 +1,67 @@
-# Presentado por:
+# Proyecto de Aplicación Web y Móvil: ChileFauna 
+
+
+## Autores:
 - Miguel Bernales
 - Pablo Daza
 - Alonso Maurel
 - Monserrath Morales
 - Eduardo Pérez
 
-# Proyecto Aplicación Web y Móvil ChileFauna 
-
+---
 ##  Índice
-1. [Resumen del Proyecto](#resumen-del-proyecto)
-2. [Requerimientos](#requerimientos)
-3. [Arquitectura de la Información](#arquitectura-de-la-información)
-3. [Diseño de prototipos](#prototipo-de-diseño)
-4. [Librerías en Angular](#liberías-usadas-con-angular)
+1. [Resumen del Proyecto](#Resumen-del-Proyecto)
+2. [Requerimientos de la Aplicación](#Requerimientos-de-la-Aplicación)
+3. [Estructura de Navegación](#Estructura-de-Navegación)
+5. [Experiencia de Usuario](#Experiencia-de-Usuario)
+6. [Prototipo de Diseño Base - Figma](#Prototipo-de-Diseño-Base---Figma)
+7. [Tecnologías Utilizadas](#Tecnologías-Utilizadas)
 
-## Resumen del Proyecto
-Aplicacion enfocada en informar sobre las especies nativas chilenas para su proteccion y reconocimiento. La app contará con datos importantes como la zona donde se encuentran, el grado de peligrosidad y qué hacer ante un eventual encuentro. Además de características adicionales como, por ejemplo, noticias y un foro asociado.
 
 ---
-## Requerimientos
+## 1. Resumen del Proyecto
+Aplicacion enfocada en informar sobre las especies nativas chilenas para su proteccion y reconocimiento. La aplicación contará con datos de las especies, tales como, la ubicación, el grado de peligrosidad y qué hacer ante un eventual encuentro. Además de características adicionales como noticias y un foro asociado.
 
-## Roles del Sistema
-- **Usuario Registrado**: Visualizar información y poder añadir animales a su lista de favoritos.
-- **Usuario de Visita**: Visualizar información.
-- **Administrador**: Control total sobre el sistema.
+---
+## 2. Requerimientos de la Aplicación
 
-
-## Requerimientos Funcionales por Rol
-
-### Rol-Usuario Registrado (USRRGT)
-
-- **RF-USRRGT-01**: El usuario busca una especie por su nombre en el sistema.
-- **RF-USRRGT-02**: El sistema muestra la descripción de una especie.
-- **RF-USRRGT-03**: El sistema muestra la ubicación geográfica de una especie.
-- **RF-USRRGT-04**: El sistema muestra contenido visual de una especie (fotos, videos y/o imágenes).
-- **RF-USRRGT-05**: El sistema muestra un indicador de peligro de una especie.
-- **RF-USRRGT-06**: El sistema muestra noticias relacionadas a las especies.
-- **RF-USRRGT-07**: El sistema muestra un catálogo de especies.
-- **RF-USRRGT-08**: El sistema muestra las principales amenazas de las especies.
-- **RF-USRRGT-09**: El usuario puede añadir a favoritos a una especie.
+### Roles de la Aplicación
+- **Usuario General (USRGNL)**: Corresponde a un rol general de la aplicación, que incluye a los usuarios no registrados, usuarios registrados y administradores.
+- **Usuario Registrado (USRRGT)**: Corresponde a un rol específico de la aplicación, este rol corresponde a aquellos usuarios que completan el proceso de registro de la aplicación
+- **Administrador (ADM)**: Corresponde a un rol específico de la aplicación
 
 
+### Requerimientos Funcionales por Rol
 
-### Rol-Usuario de Visita (USRVIS)
+#### Rol-Usuario-General (USRGNL)
 
-- **RF-USRVIS-01**: El usuario busca una especie por su nombre en el sistema.
-- **RF-USRVIS-02**: El sistema muestra la descripción de una especie.
-- **RF-USRVIS-03**: El sistema muestra la ubicación geográfica de una especie.
-- **RF-USRVIS-04**: El sistema muestra contenido visual de una especie (fotos, videos y/o imágenes).
-- **RF-USRVIS-05**: El sistema muestra un indicador de peligro de una especie.
-- **RF-USRVIS-06**: El sistema muestra noticias relacionadas a las especies.
-- **RF-USRVIS-07**: El sistema muestra un catálogo de especies.
-- **RF-USRVIS-08**: El sistema muestra las principales amenazas de las especies.
+- **RF-USRGNL-01**: El usuario debe poder visualizar las categorías de especies.
+- **RF-USRGNL-02**: El usuario debe poder visualizar un catalogo de especies (catalogo general y catalogo parte de una categoría).
+- **RF-USRGNL-03**: El usuario debe poder filtrar el catalogo de especies general.
+- **RF-USRGNL-04**: El usuario debe poder buscar una especie por su nombre.
+- **RF-USRGNL-05**: El usuario debe poder visualizar los datos asociados a una especie (descripción, ubicación geográfica, indicador de peligro, principales amenazas & contenido visual) en el sistema.
+- **RF-USRGNL-06**: El usuario debe poder visualizar noticias relacionadas a las especies.
 
 
-### Rol-Administrador (ADM)
-- **RF-ADM-01**: El administrador puede añadir una especie.
-- **RF-ADM-02**: El administrador puede modificar una especie.
+#### Rol-Usuario Registrado (USRRGT)
+
+- **RF-USRRGT-01**: El usuario registrado debe poder añadir a favoritos a una especie.
+- **RF-USRRGT-02**: El usuario registrado debe poder eliminar de favoritos a una especie.
+- **RF-USRRGT-03**: El usuario registrado debe poder crear una publicación en el foro.
+- **RF-USRRGT-04**: El usuario registrado debe poder modificar una publicación propia en el foro.
+- **RF-USRRGT-05**: El usuario registrado debe poder eliminar una publicación propia en el foro.
+
+
+#### Rol-Administrador (ADM)
+- **RF-ADM-01**: El administrador debe poder añadir una especie.
+- **RF-ADM-02**: El administrador debe poder modificar una especie.
+- **RF-ADM-03**: El administrador debe poder eliminar una especie.
+- **RF-ADM-04**: El administrador debe poder añadir una noticia.
+- **RF-ADM-05**: El administrador debe poder modificar una noticia.
+- **RF-ADM-06**: El administrador debe poder eliminar una noticia.
+- **RF-ADM-07**: El administrador debe poder crear una publicación con prioridad en el foro. 
+- **RF-ADM-08**: El administrador debe poder modificar cualquier publicación en el foro.
+- **RF-ADM-09**: El administrador debe poder eliminar cualquier publicación en el foro.
 
 ---
 
@@ -78,34 +83,33 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
     - Mozilla Firefox
 
 - **RNF-05: Escalabilidad**
-  - El sistema debe ser capaz de manejar más de **10,000 visitas simultáneas** sin pérdida notable de rendimiento.
+  - El sistema debe ser capaz de manejar más de **1,000 visitas simultáneas** sin pérdida notable de rendimiento.
 
 - **RNF-06: Tamaño en su versión móvil**
-  - El sistema debe pesar menos de 50MB
+  - El sistema debe pesar entre 30MB a 60MB.
 
 - **RNF-07: Disponibilidad**
-  - El sistema debe estar disponible el 99% del tiempo, medido de forma semanal.
+  - El sistema debe estar disponible el 99% del tiempo, semanalmente.
 
-
-## Arquitectura de la Información 
-[Estructura de Navegación](https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz)
 ---
 
-## Experiencia de Usuario
-En el desarrollo de la aplicación, hemos considerado la experiencia del usuario, asegurando que la interfaz sea responsiva y se adapte a diferentes dispositivos y tamaños de pantalla. Además, nos hemos enfocado en que la aplicación sea intuitiva y simple de usar, buscando siempre facilitar la interacción del usuario.
+## 3. [Estructura de Navegación](https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz)
 ---
 
-## Prototipo de diseño 
-[Figma - Prototipo de Gestión de Productos](https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1)
+## 4. Experiencia de Usuario
+  - En el desarrollo de la aplicación, hemos considerado la experiencia del usuario, asegurando que la interfaz sea responsiva y se adapte a diferentes dispositivos y tamaños de pantalla. Además, nos hemos enfocado en que la aplicación sea intuitiva y simple de usar, buscando siempre facilitar la interacción del usuario.
+
 ---
-## Liberías usadas con Angular
-- Bootstrap
 
-## Consideraciones adicionales
-- RECORDAR USAR MODO DIA EN EL NAVEGADOR, NO HAY MODO OSCURO
+## 5. [Prototipo de Diseño Base - Figma](https://www.figma.com/design/lLOef7YWi8NfUM0lYz78GO/ChileFauna-ProyectoWeb?node-id=33-444&t=bvsW8zplUBVVOAPT-1)
+---
+## 6. Tecnologías Utilizadas
+- **Ionic (Incluye HTML, CSS & TS): Framework de Desarrollo Web y Móvil**
+- **Angular: Framework de Desarrollo Frontend**
+- **NgModules: Herramienta de Organización**
+- **Figma: Herramienta de Prototipado**
+- **Whimsical: Herramienta de Definición de Estructura de Navegación**
+- **Google Docs: Herramienta Colaborativa para Registro de Ideas Iniciales**
+- **WhatsApp & Discord: Medios de Comunicación del Equipo**
 
-## Tecnologías
-- **Ionic Framework**
-- **Angular**
-- **TypeScript**
-- **Figma** 
+
