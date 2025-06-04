@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'clave123';
+const JWT_SECRET = 'clave_super_secreta_123';
 
 function verifyToken(req, res, next) {
   const authHeader = req.headers['authorization'];
