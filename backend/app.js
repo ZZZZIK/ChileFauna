@@ -12,8 +12,8 @@ app.use('/api/especies', especieRoutes);
 const noticiaRoutes = require('./routes/noticiaRoute');
 app.use('/api/noticias', noticiaRoutes);
 
-// const categoriaRoutes = require('./routes/categoriaRoute');
-// app.use('/api/categorias', categoriaRoutes);
+const categoriaRoutes = require('./routes/categoriaRoute');
+app.use('/api/categorias', categoriaRoutes);
 
 const userRoutes = require('./routes/userRoute');
 app.use('/api/usuarios', userRoutes);

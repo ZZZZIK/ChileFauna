@@ -7,4 +7,6 @@ router.get('/', UserController.index);
 router.post('/', UserController.store);
 router.post('/auth/', UserController.login);
 router.get('/profile',verifyToken,UserController.profile);
+router.delete('/:id', UserController.destroy);
+
 module.exports = router;

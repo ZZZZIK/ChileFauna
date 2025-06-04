@@ -109,7 +109,8 @@ CREATE TABLE `especie` (
   `descripcion` text DEFAULT NULL,
   `gradoExtincion` int(11) DEFAULT NULL,
   `indicadorPeligro` tinyint(1) DEFAULT NULL,
-  `ubicacion` text DEFAULT NULL
+  `ubicacion` text DEFAULT NULL,
+  `IdCategoria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -130,6 +131,22 @@ INSERT INTO `especie` (`IdEspecie`, `nomCientifico`, `nomComun`, `descripcion`, 
 (11, 'Pudu puda', 'Pudú', 'Pequeño ciervo nativo del sur de Chile y Argentina, de hábitos tímidos y nocturnos.', 2, 1, 'lat:-41.9,long:-73.8');
 
 -- --------------------------------------------------------
+
+-- Actualizar las categorías de las especies ya existentes
+
+UPDATE especie SET IdCategoria = 8 WHERE IdEspecie = 5;   -- Puma (Carnívoro)
+UPDATE especie SET IdCategoria = 7 WHERE IdEspecie = 11;  -- Pudú (Herbívoro)
+UPDATE especie SET IdCategoria = 8 WHERE IdEspecie = 12;  -- Zorro culpeo (Carnívoro)
+UPDATE especie SET IdCategoria = 1 WHERE IdEspecie IN (1, 2, 3, 7, 9, 10); -- Mamíferos generales
+UPDATE especie SET IdCategoria = 6 WHERE IdEspecie = 4;   -- Sapito de Darwin (Anfibio)
+UPDATE especie SET IdCategoria = 2 WHERE IdEspecie = 6;   -- Flamenco (Ave)
+UPDATE especie SET IdCategoria = 7 WHERE IdEspecie = 8;   -- Pasto antártico (Herbívoro)
+
+
+INSERT INTO especie (IdEspecie, nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion, IdCategoria)
+VALUES (12, 'Lycalopex culpaeus', 'Zorro culpeo', 'Zorro nativo del sur de América, adaptable y oportunista.', 2, 0, 'lat:-38.0,long:-70.0', 8);
+
+
 
 --
 -- Estructura de tabla para la tabla `especieamenaza`
@@ -333,6 +350,39 @@ INSERT INTO `perfil` (`id_perfil`, `tipo_perfil`, `foto`, `descripcion`) VALUES
 -- Estructura de tabla para la tabla `publicacion`
 --
 
+-- --------------------------------------------------------
+-- --------------------------------------------------------
+-- --------------------------------------------------------
+
+CREATE TABLE `categoria` (
+  `IdCategoria` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NOT NULL,
+  `descripcion` TEXT DEFAULT NULL,
+  PRIMARY KEY (`IdCategoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO categoria (nombre) VALUES
+('Mamíferos'),
+('Aves'),
+('Reptiles'),
+('Insectos'),
+('Peces'),
+('Anfibios'),
+('Herbívoros'),
+('Carnívoros'),
+('Insectívoros'),
+('Omnívoros');
+
+
+
+
+-- --------------------------------------------------------
+-- --------------------------------------------------------
+-- --------------------------------------------------------
+
+
+
+
 CREATE TABLE `publicacion` (
   `IdPublicacion` int(11) NOT NULL,
   `contenido` text NOT NULL,
@@ -425,6 +475,13 @@ ALTER TABLE `contenidovisual`
 --
 ALTER TABLE `especie`
   ADD PRIMARY KEY (`IdEspecie`);
+
+ALTER TABLE `especie`
+  ADD CONSTRAINT `fk_especie_categoria`
+  FOREIGN KEY (`IdCategoria`) REFERENCES `categoria` (`IdCategoria`)
+  ON DELETE SET NULL ON UPDATE CASCADE;
+
+
 
 --
 -- Indices de la tabla `especieamenaza`

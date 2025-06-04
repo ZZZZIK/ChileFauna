@@ -14,7 +14,14 @@ const UserModel = {
   // Buscar usuario por correo (para login)
   findByCorreo: (correo, callback) => {
     db.query('SELECT * FROM usuario WHERE correo = ?', [correo], callback);
+  },
+
+  delete: (id, callback) => {
+  db.query('DELETE FROM usuario WHERE IdUsuario = ?', [id], callback);
   }
 };
+
+
+
 
 module.exports = UserModel;

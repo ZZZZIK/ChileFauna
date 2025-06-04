@@ -68,7 +68,20 @@ const UserController = {
       message: 'Perfil del usuario',
       user: req.user
     });
+  },
+
+  destroy: (req, res) => {
+    const id = req.params.id;
+    UserModel.delete(id, (err, result) => {
+      if (err) return res.status(500).json({ error: err });
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ message: 'Usuario no encontrado' });
+      }
+      res.json({ message: 'Usuario eliminado' });
+    });
   }
 };
+
+
 
 module.exports = UserController;
