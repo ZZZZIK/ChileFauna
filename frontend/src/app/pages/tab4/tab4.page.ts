@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-tab4',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab4Page implements OnInit {
 
-  constructor() { }
+  usuarios: any[] = [];
+
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
+    this.apiService.getUsuarios().subscribe((data) => {
+      this.usuarios = data;
+    });
   }
 
 }

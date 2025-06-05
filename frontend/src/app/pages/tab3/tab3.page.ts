@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-tab3',
@@ -38,4 +39,13 @@ export class Tab3Page {
       enlace: 'https://www.biobiochile.cl/especial/aqui-tierra/noticias/2024/12/09/las-ranitas-de-darwin-estan-al-borde-de-la-extincion-en-chile-tras-compleja-pandemia-de-los-anfibios.shtml'
     }
   ];
+
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.apiService.getNoticias().subscribe((data) => {
+      this.noticias = data;
+    });
+  }
+  
 }

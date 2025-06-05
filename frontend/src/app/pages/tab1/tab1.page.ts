@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['tab1.page.scss'],
   standalone: false,
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
   categorias = [
    
     { nombre: 'Mamíferos', imagen: 'assets/imgs/pumaMAMIFERO.jpg', ruta: '/mamiferos' },
@@ -15,19 +15,17 @@ export class Tab1Page {
     { nombre: 'Reptiles', imagen: 'assets/imgs/lagartijaREPTIL.jpg', ruta: '/reptiles' },
     { nombre: 'Insectos', imagen: 'assets/imgs/chinitachilenaINSECTO.jpg', ruta: '/insectos' },
     { nombre: 'Peces', imagen: 'assets/imgs/puyePEZ.jpg', ruta: '/peces' },
-    { nombre: 'Anfibios', imagen: 'assets/imgs/ranachilenaANFIBIO.jpg', ruta: '/anfibios' },
-    { nombre: 'Herbívoros', imagen: 'assets/imgs/guanacoHERBIVORO.jpg', ruta: '/herbivoros'},
-    { nombre: 'Carnívoros', imagen: 'assets/imgs/zorroculpeoCARNIVORO.jpg', ruta: '/carnivoros'},
-    { nombre: 'Insectívoros', imagen: 'assets/imgs/piuchenINSECTIVORO.jpg', ruta: '/insectivoros'},
-    { nombre: 'Omnívoros', imagen: 'assets/imgs/zorzalOMNIVORO.jpg', ruta: '/omnivoros'}
+    { nombre: 'Anfibios', imagen: 'assets/imgs/ranachilenaANFIBIO.jpg', ruta: '/anfibios' }
      
   ];
 
-  constructor(private router: Router) {}
+  constructor(private apiService: ApiService) {}
 
-  irAMamiferos(){
-      this.router.navigate(['/mamiferos']);
-  }
   
+  ngOnInit() {
+    this.apiService.getCategorias().subscribe((data) => {
+      this.categorias = data;
+    });
+  }
 
 }

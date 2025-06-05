@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-tab2',
@@ -35,7 +36,13 @@ export class Tab2Page {
     }
   ];
 
-  constructor() {}
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.apiService.getEspecies().subscribe((data) => {
+      this.animales = data;
+    });
+  }
 
   get animalesFiltrados() {
     const texto = this.textoBusqueda.toLowerCase();
@@ -50,7 +57,7 @@ export class Tab2Page {
 
   filtrarPorCategoria(categoria: string) {
     if (this.categoriaSeleccionada === categoria) {
-      this.categoriaSeleccionada = ''; // deselecciona si ya estaba seleccionada
+      this.categoriaSeleccionada = '';
     } else {
       this.categoriaSeleccionada = categoria;
     }
@@ -59,5 +66,5 @@ export class Tab2Page {
   toggleFavorito(animal: any) {
     animal.favorito = !animal.favorito;
   }
-
+  
 }

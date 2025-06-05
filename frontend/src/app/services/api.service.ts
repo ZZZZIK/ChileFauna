@@ -22,7 +22,7 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/noticias`);
   }
 
-  getUsuarios(): Observable<any> {
+    getUsuarios(): Observable<any> {
     return this.http.get(`${this.baseUrl}/usuarios`);
   }
 }
