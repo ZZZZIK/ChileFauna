@@ -3,7 +3,10 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:8100'
+}));
+
 app.use(express.json());
 
 const especieRoutes = require('./routes/especieRoute');

@@ -4,12 +4,14 @@ const UserModel = require('../models/userModel');
 const UserController = {
   // Obtener todos los usuarios
   index: (req, res) => {
+    console.log("Se llamó GET /api/usuarios");
     UserModel.getAll((err, results) => {
       if (err) return res.status(500).json({ error: err });
       res.json(results);
     });
   },
 
+  
   // Registrar un nuevo usuario
   store: (req, res) => {
     const { correo, contrasena, nomUsuario, id_perfil } = req.body;

@@ -1,4 +1,4 @@
-const db = require('../config/db'); // Asegúrate de que db.js tenga la conexión a MySQL
+const db = require('../config/db');
 
 const CategoriaModel = {
   // Obtener todas las categorías

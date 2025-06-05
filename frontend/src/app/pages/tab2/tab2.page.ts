@@ -17,7 +17,7 @@ export class Tab2Page {
       nombre: 'Puma',
       especie: 'Puma concolor',
       categoria: 'Carnivoro',
-      imagen: 'https://www.kleankanteen.cl/wp-content/uploads/2019/01/puma2-1024x683.jpg',
+      imagen: '',
       favorito: true
     },
     {
@@ -45,14 +45,24 @@ export class Tab2Page {
   }
 
   get animalesFiltrados() {
+    // si animal es null o undefined, evita el error
+    if (!this.animales) {
+      return []; 
+    }
+
     const texto = this.textoBusqueda.toLowerCase();
 
-    return this.animales.filter(animal =>
-      (animal.nombre.toLowerCase().includes(texto) ||
-       animal.especie.toLowerCase().includes(texto))
-       &&
-      (this.categoriaSeleccionada === '' || animal.categoria === this.categoriaSeleccionada)
-    );
+    return this.animales.filter(animal => {
+      // asegura que animal y sus propiedades existen antes de usarlas
+      const nombre = animal.nombre ? animal.nombre.toLowerCase() : '';
+      const especie = animal.especie ? animal.especie.toLowerCase() : '';
+      const categoria = animal.categoria ? animal.categoria : ''; // categoria no necesita toLowerCase si es para comparación directa
+
+      return (
+        (nombre.includes(texto) || especie.includes(texto)) &&
+        (this.categoriaSeleccionada === '' || categoria === this.categoriaSeleccionada)
+      );
+    });
   }
 
   filtrarPorCategoria(categoria: string) {

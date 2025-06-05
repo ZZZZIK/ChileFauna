@@ -6,14 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:8100';
+  private baseUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
   getCategorias(): Observable<any> {
     return this.http.get(`${this.baseUrl}/categorias`);
   }
-  
+
   getEspecies(): Observable<any> {
     return this.http.get(`${this.baseUrl}/especies`);
   }
@@ -22,7 +22,7 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/noticias`);
   }
 
-    getUsuarios(): Observable<any> {
+  getUsuarios(): Observable<any> {
     return this.http.get(`${this.baseUrl}/usuarios`);
   }
 }

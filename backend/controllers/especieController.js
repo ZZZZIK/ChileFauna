@@ -3,6 +3,7 @@ const EspecieModel = require('../models/especieModel');
 const EspecieController = {
   // Obtener todas las especies
   index: (req, res) => {
+    console.log("Se llamó GET /api/especies");
     EspecieModel.getAll((err, results) => {
       if (err) return res.status(500).json({ error: err });
       res.json(results);

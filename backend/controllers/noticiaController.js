@@ -3,6 +3,7 @@ const NoticiaModel = require('../models/noticiaModel');
 const NoticiaController = {
   // Obtener todas las noticias
   index: (req, res) => {
+    console.log("Se llamó GET /api/noticias");
     NoticiaModel.getAll((err, results) => {
       if (err) return res.status(500).json({ error: err });
       res.json(results);
