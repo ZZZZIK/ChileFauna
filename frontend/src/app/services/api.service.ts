@@ -11,18 +11,18 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getCategorias(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/categorias`);
+    return this.http.get('http://localhost/ChileFaunaAPI/get_categorias.php');
   }
 
   getEspecies(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/especies`);
+    return this.http.get(`http://localhost/ChileFaunaAPI/get_especies.php`);
   }
 
   getNoticias(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/noticias`);
+    return this.http.get(`http://localhost/ChileFaunaAPI/get_noticias.php`);
   }
 
   getUsuarios(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/usuarios`);
+    return this.http.get(`http://localhost/ChileFaunaAPI/get_usuarios.php`);
   }
 }

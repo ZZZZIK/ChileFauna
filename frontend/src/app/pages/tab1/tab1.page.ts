@@ -16,7 +16,6 @@ export class Tab1Page implements OnInit {
     { nombre: 'Insectos', imagen: 'assets/imgs/chinitachilenaINSECTO.jpg', ruta: '/insectos' },
     { nombre: 'Peces', imagen: 'assets/imgs/puyePEZ.jpg', ruta: '/peces' },
     { nombre: 'Anfibios', imagen: 'assets/imgs/ranachilenaANFIBIO.jpg', ruta: '/anfibios' }
-     
   ];
 
   constructor(private apiService: ApiService) {}
