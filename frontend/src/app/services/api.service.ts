@@ -50,13 +50,20 @@ export class ApiService {
     return localStorage.getItem('token');
   }
 
-  cerrarSesion() {
-    localStorage.removeItem('token');
-  }
 
   validarToken(): Observable<any> {
     const token = this.obtenerToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.baseUrl}/auth/validar`, { headers });
   }
+
+  cerrarSesion() {
+    localStorage.removeItem('token');
+    window.location.reload(); // o router.navigate(['/tab4']);
+  }
+
+  estaLogueado(): boolean {
+  return !!localStorage.getItem('token');
+  }
+
 }

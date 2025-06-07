@@ -17,7 +17,7 @@ export class Tab4Page {
   contrasena: string = '';
 
   constructor(
-    private apiService: ApiService,
+    public apiService: ApiService,
     private router: Router,
     private toastController: ToastController
   ) {}
@@ -48,5 +48,9 @@ export class Tab4Page {
       color: 'danger'
     });
     toast.present();
+  }
+
+  cerrarSesion() {
+    this.apiService.cerrarSesion();
   }
 }
