@@ -21,7 +21,9 @@ app.use('/api/categorias', categoriaRoutes);
 const userRoutes = require('./routes/userRoute');
 app.use('/api/usuarios', userRoutes);
 
-
+// === ruta para autenticación ===
+const authRoutes = require('./routes/auth.routes');
+app.use('/api/auth', authRoutes);
 
 // Ruta raíz
 app.get('/', (req, res) => {

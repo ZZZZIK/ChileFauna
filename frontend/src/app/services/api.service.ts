@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,5 +24,39 @@ export class ApiService {
 
   getUsuarios(): Observable<any> {
     return this.http.get(`http://localhost/ChileFaunaAPI/get_usuarios.php`);
+  }
+
+
+  // === NUEVAS FUNCIONES PARA AUTENTICACIÓN JWT (Node.js) ===
+
+  login(credenciales: { correo: string; contrasena: string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/auth/login`, credenciales);
+  }
+
+  registro(usuario: {
+    correo: string;
+    contrasena: string;
+    nomUsuario: string;
+    id_perfil: number;
+  }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/auth/registro`, usuario);
+  }
+
+  guardarToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  obtenerToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  cerrarSesion() {
+    localStorage.removeItem('token');
+  }
+
+  validarToken(): Observable<any> {
+    const token = this.obtenerToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.baseUrl}/auth/validar`, { headers });
   }
 }
