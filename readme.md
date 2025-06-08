@@ -28,7 +28,7 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 ### Roles de la Aplicación
 - **Usuario General (USRGNL)**: Corresponde a un rol general de la aplicación, que incluye a los usuarios no registrados, usuarios registrados y administradores.
 - **Usuario Registrado (USRRGT)**: Corresponde a un rol específico de la aplicación, este rol corresponde a aquellos usuarios que completan el proceso de registro de la aplicación
-- **Administrador (ADM)**: Corresponde a un rol específico de la aplicación
+- **Administrador (ADM)**: Corresponde a un rol específico de la aplicación, encargado de gestionar el contenido y usuarios del sistema. Puede realizar acciones como aprobar o eliminar publicaciones, modificar registros de especies o noticias, y administrar permisos dentro de la plataforma.
 
 
 ### Requerimientos Funcionales por Rol
@@ -66,31 +66,45 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 ---
 
 ## Requerimientos No Funcionales
-- **RNF-01: Tiempo de respuesta**
-  - El sistema debe responder a operaciones clave (registro, edición, búsqueda) en menos de **3 segundos** en el 95% de los casos.
+- **RNF-01: Estructura básica de rutas y navegación**
+  - El sistema debe contar con una estructura de navegación clara y consistente.
+  - La barra de navegación debe mantenerse visible o accesible desde todas las vistas principales.
+  - Cada vista debe representar correctamente una funcionalidad específica del sistema (por ejemplo, inicio, registro, noticias, foro, etc.).
 
-- **RNF-02: Seguridad**
-  - Los roles deben restringir el acceso a funciones según permisos (Usuario Registrado, Usuario de Visita & Administrador).
-  - Acceso protegido por HTTPS y almacenamiento seguro de contraseñas.
+- **RNF-02: Usabilidad**
+  - La interfaz debe ser clara y fácil de entender para el usuario final.
+  - Se debe aplicar un diseño coherente, usando íconos y etiquetas comprensibles.
+  - Se deben considerar al menos dos patrones de diseño UX básicos:
+    - Menú de navegación visible en todas las vistas principales.
+    - Confirmación visual de acciones del usuario (por ejemplo, al enviar formularios).
 
-- **RNF-03: Usabilidad**
-  - La interfaz debe ser intuitiva y fácil de usar.
-  - Compatible con pantallas móviles y escritorio (responsive design).
+- **RNF-03: Responsividad**
+  - La aplicación debe adaptarse correctamente a distintos tamaños de pantalla (computador y móvil).
+  - Se debe emplear diseño responsive utilizando CSS o frameworks como Ionic o Bootstrap.
 
-- **RNF-04: Compatibilidad**
-  - Compatible con los navegadores:
-    - Google Chrome
-    - Mozilla Firefox
+- **RNF-04: Seguridad**
+  - Se deben implementar roles: Usuario de visita, Usuario registrado y Administrador, con control de acceso según permisos.
+  - Las rutas protegidas deben validarse mediante middleware de autenticación.
+  - El sistema debe utilizar **JSON Web Tokens (JWT)** para manejar sesiones seguras y autenticación basada en tokens.
 
-- **RNF-05: Escalabilidad**
-  - El sistema debe ser capaz de manejar más de **1,000 visitas simultáneas** sin pérdida notable de rendimiento.
+- **RNF-05: Organización del Frontend**
+  - El proyecto debe seguir una estructura modular clara en el cliente:
+    - `/pages` para vistas principales.
+    - `/services` para la lógica de conexión con API.
+    - `/assets` para archivos estáticos como imágenes o íconos.
 
-- **RNF-06: Tamaño en su versión móvil**
-  - El sistema debe pesar entre 30MB a 60MB.
+- **RNF-06: Organización del Backend**
+  - El proyecto backend debe mantener una estructura ordenada por responsabilidades:
+    - `/routes` para definir las rutas de la API.
+    - `/controllers` para la lógica de cada endpoint.
+    - `/models` para la conexión con la base de datos.
+    - `/middlewares` para validaciones y autenticación.
+    - `/config` para configuraciones generales (por ejemplo, conexión a base de datos).
 
-- **RNF-07: Disponibilidad**
-  - El sistema debe estar disponible el 99% del tiempo, semanalmente.
-
+- **RNF-07: Modularidad y escalabilidad**
+  - El sistema debe estar estructurado de forma modular, permitiendo una escalabilidad progresiva y un mantenimiento eficiente del código.
+  - Cada módulo debe tener responsabilidades bien definidas para evitar acoplamientos innecesarios.
+  
 ---
 
 ## 3. [Estructura de Navegación](https://whimsical.com/chilefauna-Tb9MqdBW46YqzTZWMTxfcz)
