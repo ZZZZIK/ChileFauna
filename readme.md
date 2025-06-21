@@ -7,7 +7,7 @@
 - Alonso Maurel
 - Monserrath Morales
 - Eduardo Pérez
-
+  
 ---
 ##  Índice
 1. [Resumen del Proyecto](#Resumen-del-Proyecto)
@@ -16,8 +16,19 @@
 5. [Experiencia de Usuario](#Experiencia-de-Usuario)
 6. [Prototipo de Diseño Base - Figma](#Prototipo-de-Diseño-Base---Figma)
 7. [Tecnologías Utilizadas](#Tecnologías-Utilizadas)
+   
+---
+## Instrucciones para ejecución correcta de la aplicación
 
-
+1. Utilizando XAMPP, inicie los servicios de MySQL y Apache.
+2. Abra dos terminales: una para el "Backend" y otra para el "Frontend".
+3. En una de las terminales, ingrese el comando "cd backend", luego "npm install" y, por último, "node index.js".
+4. Ingrese a http://localhost/phpmyadmin/.
+5. En la barra lateral izquierda, presione "Nueva", asígnele el nombre "chilefaunabd" y luego presione "Crear".
+6. Presione "Importar" en la barra superior y suba el archivo SQL llamado "chilefaunabd", ubicado en la carpeta "otros" del proyecto.
+7. En la otra terminal, ingrese "cd frontend", luego "npm install" y, por último, "ionic serve".
+8. Utilice la aplicación.
+   
 ---
 ## 1. Resumen del Proyecto
 Aplicacion enfocada en informar sobre las especies nativas chilenas para su proteccion y reconocimiento. La aplicación contará con datos de las especies, tales como, la ubicación, el grado de peligrosidad y qué hacer ante un eventual encuentro. Además de características adicionales como noticias y un foro asociado.
@@ -125,5 +136,3 @@ Aplicacion enfocada en informar sobre las especies nativas chilenas para su prot
 - **Whimsical: Herramienta de Definición de Estructura de Navegación**
 - **Google Docs: Herramienta Colaborativa para Registro de Ideas Iniciales**
 - **WhatsApp & Discord: Medios de Comunicación del Equipo**
-
-
