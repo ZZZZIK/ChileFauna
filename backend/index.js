@@ -1,42 +1,29 @@
+// index.js
+
+require('dotenv').config();
 const mysql = require('mysql2');
-const app = require('./app');
+const app = require('./server'); // Esto carga server.js y todas sus rutas
 
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'chilefaunabd'
-});
+// ---- INICIA EL SERVIDOR INMEDIATAMENTE ----
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  console.log('✔ Servidor arrancó. Ahora intentando conectar a la base de datos...');
 
-db.connect(err => {
-  if (err) {
-    console.error('✖ Error al conectar a chilefaunabd:', err);
-    process.exit(1);
-  }
+  // ---- CONECTA A LA BASE DE DATOS DESPUÉS DE ARRANCAR ----
+  const db = mysql.createConnection({
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'chilefaunabd'
+  });
 
-  console.log('✔ Base de datos lista, arrancando servidor…');
-
-  // Consulta automática al iniciar
-  db.query('SELECT nomComun FROM Especie', (err, results) => {
+  db.connect(err => {
     if (err) {
-      console.error('✖ Error al obtener nombres comunes:', err);
-    } else {
-      console.log('📌 Lista de nombres comunes de especies guardados:');
-      results.forEach(row => console.log(`- ${row.nomComun}`));
+      console.error('✖ Error al conectar a chilefaunabd:', err);
+      // El servidor ya está corriendo, así que no usamos process.exit(1)
+      return;
     }
+    console.log('✔ Conexión con la base de datos establecida correctamente.');
   });
-
-  // Ruta para obtener todas las especies
-  app.get('/api/especies', (req, res) => {
-    db.query('SELECT * FROM Especie', (err, rows) => {
-      if (err) return res.status(500).send(err);
-      res.json(rows);
-    });
-  });
-
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
-    console.log(`Servidor corriendo en puerto ${PORT}`);
-  });
-  
 });

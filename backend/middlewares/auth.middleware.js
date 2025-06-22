@@ -1,5 +1,6 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const claveJWT = 'clave_secreta_segura'; // misma clave usada en el controlador
+const claveJWT = process.env.JWT_SECRET;
 
 module.exports = (req, res, next) => {
   const authHeader = req.headers.authorization;
