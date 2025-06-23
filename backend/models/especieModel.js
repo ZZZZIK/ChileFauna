@@ -2,62 +2,57 @@ const db = require('../config/db');
 
 const EspecieModel = {
   // Obtener todas las especies
-  getAll: (callback) => {
-    const sql = 'SELECT * FROM especie';
-    db.query(sql, callback);
+  getAllPaged: (limit, offset, callback) => {
+    const query = 'SELECT IdEspecie, nomCientifico, nomComun FROM especie LIMIT ? OFFSET ?';
+    db.query(query, [limit, offset], callback);
   },
 
   // Obtener una especie por ID
   getById: (id, callback) => {
-    const sql = 'SELECT * FROM especie WHERE IdEspecie = ?';
-    db.query(sql, [id], callback);
+    const query = 'SELECT IdEspecie, nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion, IdCategoria FROM especie WHERE IdEspecie = ?';
+    db.query(query, [id], callback);
   },
 
   // Crear una nueva especie
-  create: (especie, callback) => {
-    const sql = `
-      INSERT INTO especie (nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `;
+  create: (data, callback) => {
+    const query = `INSERT INTO especie
+      (nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion, IdCategoria)
+      VALUES (?, ?, ?, ?, ?, ?, ?)`;
     const values = [
-      especie.nomCientifico,
-      especie.nomComun,
-      especie.descripcion,
-      especie.gradoExtincion,
-      especie.indicadorPeligro,
-      especie.ubicacion
+      data.nomCientifico,
+      data.nomComun,
+      data.descripcion,
+      data.gradoExtincion,
+      data.indicadorPeligro,
+      data.ubicacion,
+      data.IdCategoria
     ];
-    db.query(sql, values, callback);
+    db.query(query, values, callback);
   },
 
   // Actualizar una especie existente
-  update: (id, especie, callback) => {
-    const sql = `
-      UPDATE especie SET
-        nomCientifico = ?,
-        nomComun = ?,
-        descripcion = ?,
-        gradoExtincion = ?,
-        indicadorPeligro = ?,
-        ubicacion = ?
-      WHERE IdEspecie = ?
-    `;
+  update: (id, data, callback) => {
+    const query = `UPDATE especie SET
+      nomCientifico = ?, nomComun = ?, descripcion = ?, gradoExtincion = ?,
+      indicadorPeligro = ?, ubicacion = ?, IdCategoria = ?
+      WHERE IdEspecie = ?`;
     const values = [
-      especie.nomCientifico,
-      especie.nomComun,
-      especie.descripcion,
-      especie.gradoExtincion,
-      especie.indicadorPeligro,
-      especie.ubicacion,
+      data.nomCientifico,
+      data.nomComun,
+      data.descripcion,
+      data.gradoExtincion,
+      data.indicadorPeligro,
+      data.ubicacion,
+      data.IdCategoria,
       id
     ];
-    db.query(sql, values, callback);
+    db.query(query, values, callback);
   },
 
   // Eliminar una especie por ID
   delete: (id, callback) => {
-    const sql = 'DELETE FROM especie WHERE IdEspecie = ?';
-    db.query(sql, [id], callback);
+    const query = 'DELETE FROM especie WHERE IdEspecie = ?';
+    db.query(query, [id], callback);
   }
 };
 

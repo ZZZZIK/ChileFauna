@@ -22,12 +22,15 @@
 
 1. Utilizando XAMPP, inicie los servicios de MySQL y Apache.
 2. Abra dos terminales: una para el "Backend" y otra para el "Frontend".
-3. En una de las terminales, ingrese el comando "cd backend", luego "npm install" y, por último, "node index.js".
+3. En una de las terminales, ingrese el comando "cd backend", luego "npm install", luego "npm install compression" y, por último, "node index.js".
 4. Ingrese a http://localhost/phpmyadmin/.
 5. En la barra lateral izquierda, presione "Nueva", asígnele el nombre "chilefaunabd" y luego presione "Crear".
 6. Presione "Importar" en la barra superior y suba el archivo SQL llamado "chilefaunabd", ubicado en la carpeta "otros" del proyecto.
 7. En la otra terminal, ingrese "cd frontend", luego "npm install" y, por último, "ionic serve".
 8. Utilice la aplicación.
+
+- La API muestra resultados paginados para mejor optimización. Si desea acceder a más registros, puede modificar manualmente los parámetros limit y offset en la URL.
+Ejemplo: http://localhost:3000/api/especies?limit=10&offset=0
    
 ---
 ## 1. Resumen del Proyecto
