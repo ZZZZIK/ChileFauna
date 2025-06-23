@@ -4,7 +4,11 @@ const CategoriaController = {
   // Obtener todas las categorías
   index: (req, res) => {
     console.log("Se llamó GET /api/categorias");
-    CategoriaModel.getAll((err, results) => {
+
+    const limit = parseInt(req.query.limit) || 5;
+    const offset = parseInt(req.query.offset) || 0;
+    
+    CategoriaModel.getAllPaged(limit, offset, (err, results) => {
       if (err) return res.status(500).json({ error: err });
       res.json(results);
     });

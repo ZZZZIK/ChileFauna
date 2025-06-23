@@ -1,9 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const compression = require('compression'); // ← Nuevo (comprime los datos antes de enviar y navegador descomprime)
 const helmet = require('helmet');
 
 const app = express();
+
+app.use(compression()); // ← Activar compresión
 
 // Seguridad
 app.use(helmet());

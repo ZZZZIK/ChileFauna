@@ -4,7 +4,11 @@ const UserController = {
   // Obtener todos los usuarios
   index: (req, res) => {
     console.log("Se llamó GET /api/usuarios");
-    UserModel.getAll((err, results) => {
+
+    const limit = parseInt(req.query.limit) || 2;
+    const offset = parseInt(req.query.offset) || 0;
+
+    UserModel.getAllPaged(limit, offset, (err, results) => {
       if (err) return res.status(500).json({ error: err });
       res.json(results);
     });

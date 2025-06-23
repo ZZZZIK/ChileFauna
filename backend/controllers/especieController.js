@@ -4,7 +4,11 @@ const EspecieController = {
   // Obtener todas las especies
   index: (req, res) => {
     console.log("Se llamó GET /api/especies");
-    EspecieModel.getAll((err, results) => {
+
+    const limit = parseInt(req.query.limit) || 5;
+    const offset = parseInt(req.query.offset) || 0;
+
+    EspecieModel.getAllPaged(limit, offset, (err, results) => {
       if (err) return res.status(500).json({ error: err });
       res.json(results);
     });
@@ -22,7 +26,7 @@ const EspecieController = {
 
   // Crear una nueva especie
   store: (req, res) => {
-    const { nomComun, nomCientifico, descripcion, gradoExtincion, indicadorPeligro, ubicacion } = req.body;
+    const { nomComun, nomCientifico, descripcion, gradoExtincion, indicadorPeligro, ubicacion, IdCategoria } = req.body;
 
     if (!nomCientifico) {
       return res.status(400).json({ error: 'El nombre científico es obligatorio' });
@@ -34,7 +38,8 @@ const EspecieController = {
       descripcion,
       gradoExtincion,
       indicadorPeligro,
-      ubicacion
+      ubicacion,
+      IdCategoria
     };
 
     EspecieModel.create(nuevaEspecie, (err, result) => {
@@ -46,7 +51,7 @@ const EspecieController = {
   // Actualizar especie existente
   update: (req, res) => {
     const id = req.params.id;
-    const { nomComun, nomCientifico, descripcion, gradoExtincion, indicadorPeligro, ubicacion } = req.body;
+    const { nomComun, nomCientifico, descripcion, gradoExtincion, indicadorPeligro, ubicacion, IdCategoria } = req.body;
 
     const especieActualizada = {
       nomComun,
@@ -54,7 +59,8 @@ const EspecieController = {
       descripcion,
       gradoExtincion,
       indicadorPeligro,
-      ubicacion
+      ubicacion,
+      IdCategoria
     };
 
     EspecieModel.update(id, especieActualizada, (err, result) => {
