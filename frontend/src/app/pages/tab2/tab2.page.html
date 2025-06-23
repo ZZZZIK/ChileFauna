@@ -1,4 +1,3 @@
-
 <ion-content>
   <h2>Búsqueda</h2>
 
@@ -16,10 +15,10 @@
     </button>
   </div>
 
-
   <ion-card *ngFor="let animal of animalesFiltrados">
 
-    <button class="favorito-btn" (click)="toggleFavorito(animal)">
+    <!-- Botón de favorito -->
+    <button class="favorito-btn" (click)="toggleFavorito(animal); $event.stopPropagation()">
       <ion-icon [name]="animal.favorito ? 'heart' : 'heart-outline'"></ion-icon>
     </button>
 
@@ -27,7 +26,10 @@
       <img [src]="animal.imagen" alt="Imagen de {{ animal.nombre }}">
       <div class="animal-info">
         <ion-card-header>
-          <ion-card-title class="animal-name">{{ animal.nombre }}</ion-card-title>
+          <!-- SOLO esto tiene el click -->
+          <ion-card-title class="animal-name" (click)="verDetalles(animal)">
+            {{ animal.nombre }}
+          </ion-card-title>
           <ion-card-subtitle>{{ animal.especie }}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
@@ -35,5 +37,6 @@
         </ion-card-content>
       </div>
     </div>
+    
   </ion-card>
 </ion-content>

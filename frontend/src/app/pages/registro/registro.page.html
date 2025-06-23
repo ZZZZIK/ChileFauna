@@ -14,7 +14,6 @@
           <ion-input [(ngModel)]="nomUsuario" required></ion-input>
         </ion-item>
 
-        <!-- Campos opcionales que no se envían -->
         <ion-label position="stacked">Rut</ion-label>
         <ion-item lines="none">
           <ion-input></ion-input>
@@ -45,19 +44,28 @@
           <ion-input type="password" [(ngModel)]="confirmarContrasena" required></ion-input>
         </ion-item>
 
-        <!-- Checkbox de términos -->
+        <!-- Checkbox de términos sin estilo en línea -->
         <ion-item lines="none" class="checkbox-container">
           <ion-checkbox slot="start" [(ngModel)]="aceptaTerminos"></ion-checkbox>
-          <ion-label style="color: #333333;">Aceptar Términos y condiciones</ion-label>
+          <ion-label>Aceptar Términos y condiciones</ion-label>
         </ion-item>
       </div>
     </div>
 
     <div class="button-row">
-      <ion-button expand="block" color="success" class="login-button" (click)="registrarse()">
-        INGRESAR
+      <!-- 
+        BOTÓN ACTUALIZADO: Texto cambiado, sin 'color' y con la nueva clase
+      -->
+      <ion-button expand="block" class="btn-ingresar" (click)="registrarse()">
+        REGISTRARSE
       </ion-button>
-      <ion-button [routerLink]="['/tabs/tab4']" expand="block" color="medium" class="cancel-button">CANCELAR</ion-button>
+      
+      <!-- 
+        BOTÓN ACTUALIZADO: Sin 'color' y con la nueva clase
+      -->
+      <ion-button [routerLink]="['/tabs/tab4']" expand="block" class="btn-cancelar">
+        CANCELAR
+      </ion-button>
     </div>
 
   </div>

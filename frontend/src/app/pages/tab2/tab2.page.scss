@@ -67,6 +67,11 @@ ion-content {
   .animal-info {
     flex: 1;
   }
+  .animal-name {
+    cursor: pointer;
+    color: green;
+    font-weight: bold;
+  }
   
   .favorito-btn {
     position: absolute;

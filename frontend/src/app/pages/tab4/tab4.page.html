@@ -25,19 +25,27 @@
       </div>
 
       <!-- Fila 3: Botones -->
-      <div class="button-row">
-        <ion-button expand="block" color="success" class="login-button" (click)="iniciarSesion()">
-          INGRESAR
-        </ion-button>
+          <!-- Fila 3: Botones -->
+    <div class="button-row">
+      <!-- 
+        IMPORTANTE: Se eliminó color="success" y se cambió la clase.
+      -->
+      <ion-button expand="block" class="btn-ingresar" (click)="iniciarSesion()">
+        INGRESAR
+      </ion-button>
 
-        <ion-button [routerLink]="['/registro']" expand="block" color="medium" class="cancel-button">
-          CREAR CUENTA
-        </ion-button>
+      <!-- 
+        IMPORTANTE: Se eliminó color="medium" y se cambió la clase.
+      -->
+      <ion-button [routerLink]="['/registro']" expand="block" class="btn-crear">
+        CREAR CUENTA
+      </ion-button>
 
-        <ion-button expand="block" color="medium" class="cancel-button">
-          CANCELAR
-        </ion-button>
-      </div>
+      <!-- 
+        IMPORTANTE: Se eliminó color="medium" y se cambió la clase.
+      -->
+      
+    </div>
     </ng-container>
 
     <!-- Si SÍ está logueado -->
