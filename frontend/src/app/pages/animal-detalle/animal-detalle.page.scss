@@ -1,0 +1,199 @@
+.detalle-container {
+  --background: #f7f7f7;
+  position: relative;
+}
+
+.volver-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 22px;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.imagen-animal {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.imagen-animal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contenido {
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin-top: -30px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contenido .header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contenido .header-info h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #2e4b2d;
+}
+
+.contenido .header-info h2 {
+  margin: 0;
+  font-size: 16px;
+  color: #a2c79e;
+  font-style: italic;
+}
+
+.contenido .header-info .favorito {
+  background: #d9f978;
+  border-radius: 12px;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.contenido .header-info .favorito ion-icon {
+  font-size: 24px;
+  color: #3b4b1f;
+}
+
+.contenido .tags {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contenido .tags .tag {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #eee;
+  color: #333;
+}
+
+.contenido .tags .clase {
+  background-color: #d1a588;
+  color: #3d2c1f;
+}
+
+.contenido .tags .dieta {
+  background-color: #b6f4b3;
+  color: #1f401f;
+}
+
+.contenido .descripcion {
+  margin-top: 20px;
+}
+
+.contenido .descripcion p {
+  line-height: 1.6;
+  color: #333;
+  font-size: 15px;
+}
+
+.contenido .extra-info-wrapper {
+  margin-top: 20px;
+}
+
+.contenido .extra-info-wrapper .bloque-info {
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background-color: #d9f978;
+  overflow: hidden;
+}
+
+.contenido .extra-info-wrapper .bloque-titulo {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-weight: bold;
+  color: #2e4b2d;
+  background-color: #d9f978;
+  cursor: pointer;
+}
+
+.contenido .extra-info-wrapper .bloque-titulo ion-icon {
+  margin-right: 8px;
+}
+
+.contenido .extra-info-wrapper .bloque-contenido {
+  padding: 16px;
+  background-color: #fff;
+}
+
+.contenido .extra-info-wrapper .bloque-contenido img {
+  max-width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+
+/* --- VISTA DE ESCRITORIO (PC) --- */
+/* Este bloque ha sido reescrito para lograr el layout inmersivo */
+@media screen and (min-width: 768px) {
+  .detalle-container {
+    /* Establecemos un contexto de posicionamiento y altura */
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+  }
+
+  .imagen-animal {
+    /* La imagen ahora es una capa de fondo absoluta */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* La ponemos en la capa de abajo */
+  }
+
+  /* La imagen dentro del contenedor debe cubrir todo el espacio */
+  .imagen-animal img {
+      object-position: center; /* Opcional: centra la imagen */
+  }
+
+  .contenido {
+    /* La tarjeta de contenido ahora flota a la derecha */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%; /* Ocupa la mitad derecha de la pantalla */
+    height: 100vh; /* Ocupa toda la altura */
+    z-index: 2; /* Se asegura de estar sobre la imagen */
+
+    /* Importante: permite scroll si el contenido es muy largo */
+    overflow-y: auto; 
+    
+    /* Mantenemos los estilos visuales */
+    margin: 0;
+    padding: 40px;
+    border-radius: 0;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    box-shadow: -5px 0px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Los wrappers internos ya no necesitan estilos de layout especiales */
+  .main-content,
+  .extra-info-wrapper {
+      width: auto;
+      margin-top: 0;
+  }
+}

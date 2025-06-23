@@ -13,7 +13,16 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'animal-detalle',
+    loadChildren: () => import('./pages/animal-detalle/animal-detalle.module').then( m => m.AnimalDetallePageModule)
+  },
+  {
+    path: 'animal-detalle/:id',
+    loadChildren: () => import('./pages/animal-detalle/animal-detalle.module').then(m => m.AnimalDetallePageModule)
   }
+
 ];
 @NgModule({
   imports: [

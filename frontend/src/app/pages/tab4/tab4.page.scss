@@ -1,110 +1,166 @@
+
+/* Fondo de la página - Modo Oscuro */
 .login-background {
-    --background: #bfdbb8;
-  }
-  
-  .login-container {
-    padding: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  /* Título */
-  .login-title {
-    font-size: 1.8em;
-    color: #3e4a34;
-    font-weight: 600;
-    margin: 0;
-    text-align: center;
-  }
-  
-  /* Fila 2: avatar + inputs */
+  --background: #212E24; /* Verde bosque oscuro */
+}
+
+.login-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Título */
+.login-title {
+  font-size: 1.8em;
+  color: #E8F5E9; /* Color de texto claro para contraste */
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+/* Fila 2: avatar + inputs */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-size: 25px;
+  color: #E8F5E9; /* Color de texto claro */
+}
+
+.avatar {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.avatar ion-icon {
+  font-size: 50px;
+  color: #444;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+ion-item {
+  --background: #ffffff;
+  border-radius: 15px;
+  --min-height: 45px;
+  --highlight-height: 0px; /* Quitamos la línea de abajo al seleccionar */
+  --border-color: transparent; /* Quitamos el borde por defecto */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/*
+ * ======================================================
+ * NUEVOS ESTILOS PARA BOTONES - INICIO
+ * ======================================================
+ */
+
+/* Contenedor de botones */
+.button-row {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 15px; /* Aumentamos un poco el espacio */
+}
+
+/* Estilo base para todos los botones */
+.button-row ion-button {
+  --border-radius: 10px; /* Bordes más rectangulares */
+  --height: 42px; /* Altura reducida */
+  --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0; /* Reseteamos márgenes del componente */
+}
+
+/* Botón Primario: INGRESAR */
+.button-row ion-button.btn-ingresar {
+  --background: #689F38; /* Un verde más brillante para destacar */
+  --background-hover: #7CB342;
+  --color: #ffffff;
+}
+
+/* Efecto glow para botón primario al pasar el mouse */
+.button-row ion-button.btn-ingresar:hover {
+  transform: translateY(-2px) scale(1.02);
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 40px rgba(173, 255, 47, 0.8);
+}
+
+/* Botón Secundario: CREAR CUENTA */
+.button-row ion-button.btn-crear {
+  --background: transparent;
+  --border-color: #689F38;
+  --border-width: 2px;
+  --border-style: solid;
+  --color: #689F38;
+  --box-shadow: none;
+  --background-hover: #689F38;
+  --color-hover: #ffffff;
+  --border-color-hover: #689F38;
+}
+
+/* Efecto glow para botón secundario al pasar el mouse */
+.button-row ion-button.btn-crear:hover {
+  transform: translateY(-2px);
+  --box-shadow: 0 0 35px rgba(104, 159, 56, 0.8);
+}
+
+/* Botón Terciario: CANCELAR */
+.button-row ion-button.btn-cancelar {
+  --background: transparent;
+  --color: #BDBDBD; /* Gris claro para legibilidad */
+  --box-shadow: none;
+  --background-hover: rgba(232, 245, 233, 0.1);
+}
+
+/*
+ * ======================================================
+ * NUEVOS ESTILOS PARA BOTONES - FIN
+ * ======================================================
+ */
+
+
+/* Versión para PC */
+@media screen and (min-width: 768px) {
   .form-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    font-size: 25px;
-    color: #0B1D0A
-  }
-  
-  .avatar {
-    background-color: #ffffff;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
+    margin-top: 150px;
+    gap: 300px;
   }
-  
-  .avatar ion-icon {
-    font-size: 50px;
-    color: #444;
-  }
-  
+
   .inputs-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    
-    width: 100%;
-    max-width: 300px;
+    margin-left: 30px;
   }
-  
-  ion-item {
-    
-    --background: #ffffff;
-    border-radius: 15px;
-    
-    --min-height: 45px;
-   
 
-
-  }
-  
-  /* Fila 3: botones */
   .button-row {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    gap: 20px; /* Ajustamos el espacio para desktop */
   }
   
-  /* Botones */
-  ion-button.login-button,
-  ion-button.cancel-button {
-    border-radius: 8px;
-    height: 45px;
+  /* Ajustamos el ancho de los botones en desktop */
+  .button-row ion-button {
+    width: 200px; 
   }
-  
-  /* Versión para PC */
-  @media screen and (min-width: 768px) {
-    .form-row {
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: 150px;
-      gap:300px;
-    }
-  
-    .inputs-container {
-      margin-left: 30px;
-      
-    }
-  
-    .button-row {
-      flex-direction: row;
-      justify-content: center;
-      margin-top: 150px;
-      gap: 130px;
-    }
-  
-    ion-button.login-button,
-    ion-button.cancel-button {
-      width: auto;
-      padding: 0 20px;
-    }
-  }
+}

@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true" class="detalle-container" *ngIf="animal">
+  <div class="volver-btn" (click)="volver()">←</div>
+
+  <div class="imagen-animal">
+    <img src="assets/imgs/pudu2.jpg" alt="Pudú">
+  </div>
+
+  <div class="contenido">
+    <div class="main-content">
+      <div class="header-info">
+        <div>
+          <h1>{{ animal.nombre }}</h1>
+          <h2>{{ animal.especie }}</h2>
+        </div>
+        <button class="favorito">
+          <ion-icon name="heart-outline"></ion-icon>
+        </button>
+      </div>
+
+      <div class="tags">
+        <div class="tag clase">• Clase: <strong>{{ animal.clase }}</strong></div>
+        <div class="tag dieta">• Alimentación: <strong>{{ animal.categoria }}</strong></div>
+      </div>
+
+      <div class="descripcion">
+        <p>{{ animal.descripcion }}</p>
+      </div>
+    </div>
+
+    <div class="extra-info-wrapper">
+      <div class="bloque-info">
+        <div class="bloque-titulo" (click)="toggleBloque('conservacion')">
+          <ion-icon [name]="estadoConservacionVisible ? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+          <span>Estado de conservación</span>
+        </div>
+        <div class="bloque-contenido" *ngIf="estadoConservacionVisible">
+          <img src="assets/imgs/conservacion.jpg" alt="Estado de conservación">
+        </div>
+      </div>
+
+      <div class="bloque-info">
+        <div class="bloque-titulo" (click)="toggleBloque('avistamientos')">
+          <ion-icon [name]="zonaAvistamientosVisible ? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+          <span>Zona de avistamientos</span>
+        </div>
+        <div class="bloque-contenido" *ngIf="zonaAvistamientosVisible">
+          <img src="assets/imgs/avistamientos.png" alt="Zona de avistamientos">
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
