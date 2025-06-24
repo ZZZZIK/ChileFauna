@@ -1,12 +1,16 @@
-const onlyAdmin = require('../middlewares/onlyAdmin');
-
-// backend/routes/admin.routes.js
 const { Router }  = require('express');
 const catCtrl     = require('../controllers/categoriaController');
 const espCtrl     = require('../controllers/especieController');
 const notCtrl     = require('../controllers/noticiaController');
 
+const authMiddleware = require('../middlewares/auth.middleware');
+const onlyAdmin = require('../middlewares/onlyAdmin');
+
 const router = Router();
+
+// Aplica los middlewares a todas las rutas del router
+router.use(authMiddleware);
+router.use(onlyAdmin);
 
 /* ---------- CATEGORÍAS ---------- */
 router.get   ('/categorias',       catCtrl.index);      // listar
@@ -29,4 +33,4 @@ router.post  ('/noticias',         notCtrl.store);
 router.put   ('/noticias/:id',     notCtrl.update);
 router.delete('/noticias/:id',     notCtrl.destroy);
 
-module.exports = router;           // ← ¡no olvides exportar!
+module.exports = router;
