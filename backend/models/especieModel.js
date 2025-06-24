@@ -3,20 +3,20 @@ const db = require('../config/db');
 const EspecieModel = {
   // Obtener todas las especies
   getAllPaged: (limit, offset, callback) => {
-    const query = 'SELECT IdEspecie, nomCientifico, nomComun FROM especie LIMIT ? OFFSET ?';
+    const query = 'SELECT IdEspecie, nomCientifico, nomComun, imgEspecie, categoria FROM especie LIMIT ? OFFSET ?';
     db.query(query, [limit, offset], callback);
   },
 
   // Obtener una especie por ID
   getById: (id, callback) => {
-    const query = 'SELECT IdEspecie, nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion, IdCategoria FROM especie WHERE IdEspecie = ?';
+    const query = 'SELECT IdEspecie, nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion, categoria, imgEspecie FROM especie WHERE IdEspecie = ?';
     db.query(query, [id], callback);
   },
 
   // Crear una nueva especie
   create: (data, callback) => {
     const query = `INSERT INTO especie
-      (nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion, IdCategoria)
+      (nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion, categoria)
       VALUES (?, ?, ?, ?, ?, ?, ?)`;
     const values = [
       data.nomCientifico,
@@ -25,7 +25,7 @@ const EspecieModel = {
       data.gradoExtincion,
       data.indicadorPeligro,
       data.ubicacion,
-      data.IdCategoria
+      data.categoria
     ];
     db.query(query, values, callback);
   },
@@ -34,8 +34,9 @@ const EspecieModel = {
   update: (id, data, callback) => {
     const query = `UPDATE especie SET
       nomCientifico = ?, nomComun = ?, descripcion = ?, gradoExtincion = ?,
-      indicadorPeligro = ?, ubicacion = ?, IdCategoria = ?
+      indicadorPeligro = ?, ubicacion = ?, categoria = ?, imgEspecie = ?
       WHERE IdEspecie = ?`;
+
     const values = [
       data.nomCientifico,
       data.nomComun,
@@ -43,9 +44,11 @@ const EspecieModel = {
       data.gradoExtincion,
       data.indicadorPeligro,
       data.ubicacion,
-      data.IdCategoria,
+      data.categoria,
+      data.imgEspecie,  // <- nuevo campo
       id
     ];
+
     db.query(query, values, callback);
   },
 

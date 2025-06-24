@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2025 a las 03:56:07
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Jun 24, 2025 at 08:26 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `chilefaunabd`
+-- Database: `chilefaunabd`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `amenaza`
+-- Table structure for table `amenaza`
 --
 
 CREATE TABLE `amenaza` (
@@ -34,7 +34,7 @@ CREATE TABLE `amenaza` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `amenaza`
+-- Dumping data for table `amenaza`
 --
 
 INSERT INTO `amenaza` (`IdAmenaza`, `nomAmenaza`, `descripcion`) VALUES
@@ -47,7 +47,36 @@ INSERT INTO `amenaza` (`IdAmenaza`, `nomAmenaza`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comentario`
+-- Table structure for table `categoria`
+--
+
+CREATE TABLE `categoria` (
+  `IdCategoria` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `imgPrincipal` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categoria`
+--
+
+INSERT INTO `categoria` (`IdCategoria`, `nombre`, `descripcion`, `imgPrincipal`) VALUES
+(1, 'Mamíferos', NULL, 'pumaMAMIFERO.jpg'),
+(2, 'Aves', NULL, 'caiquenAVE.jpg'),
+(3, 'Reptiles', NULL, 'lagartijaREPTIL.jpg'),
+(4, 'Insectos', NULL, 'chinitachilenaINSECTO.jpg'),
+(5, 'Peces', NULL, 'puyePEZ.jpg'),
+(6, 'Anfibios', NULL, 'ranachilenaANFIBIO.jpg'),
+(7, 'Herbívoros', NULL, 'guanacoHERBIVORO.jpg'),
+(8, 'Carnívoros', NULL, 'zorroculpeoCARNIVORO.jpg'),
+(9, 'Insectívoros', NULL, 'piuchenINSECTIVORO.jpg'),
+(10, 'Omnívoros', NULL, 'zorzalOMNIVORO.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comentario`
 --
 
 CREATE TABLE `comentario` (
@@ -58,7 +87,7 @@ CREATE TABLE `comentario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `comentario`
+-- Dumping data for table `comentario`
 --
 
 INSERT INTO `comentario` (`IdComentario`, `contenido`, `fk_IdUsuario`, `fk_IdPublicacion`) VALUES
@@ -70,7 +99,7 @@ INSERT INTO `comentario` (`IdComentario`, `contenido`, `fk_IdUsuario`, `fk_IdPub
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contenidovisual`
+-- Table structure for table `contenidovisual`
 --
 
 CREATE TABLE `contenidovisual` (
@@ -81,25 +110,33 @@ CREATE TABLE `contenidovisual` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `contenidovisual`
+-- Dumping data for table `contenidovisual`
 --
 
 INSERT INTO `contenidovisual` (`IdContenido`, `descripcion`, `tipo`, `urlRecurso`) VALUES
-(1, 'Fotografía de Araucaria en la Cordillera de los Andes.', 'imagen', 'https://example.com/araucaria.jpg'),
-(2, 'Video del Alerce en la Región de Los Lagos.', 'video', 'https://example.com/alerce.mp4'),
-(3, 'Imagen del Sapito de Darwin en su hábitat natural.', 'imagen', 'https://example.com/sapito.jpg'),
-(4, 'Fotografía del Puma en la Región de Coquimbo.', 'imagen', 'https://example.com/puma.jpg'),
-(5, 'Video del Flamenco chileno en el Salar de Atacama.', 'video', 'https://example.com/flamenco.mp4'),
-(6, 'Imagen del Ratón orejudo en la Patagonia.', 'imagen', 'https://example.com/raton.jpg'),
-(7, 'Fotografía del Pasto antártico en la Isla Rey Jorge.', 'imagen', 'https://example.com/pasto.jpg'),
-(8, 'Imagen del Coigüe de Magallanes en Tierra del Fuego.', 'imagen', 'https://example.com/coigue.jpg'),
-(9, 'Video del Monito del monte en los bosques de Valdivia.', 'video', 'https://example.com/monito.mp4'),
-(10, 'Imagen de la Lenga en los Andes Patagónicos.', 'imagen', 'https://example.com/lenga.jpg');
+(11, 'Imagen caiquenAVE', 'imagen', 'caiquenAVE.jpg'),
+(12, 'Imagen chinita chilena INSECTO', 'imagen', 'chinitachilenaINSECTO.jpg'),
+(13, 'Imagen conservación', 'imagen', 'conservacion.jpg'),
+(14, 'Imagen guanaco HERBIVORO', 'imagen', 'guanacoHERBIVORO.jpg'),
+(15, 'Imagen lagartija REPTIL', 'imagen', 'lagartijaREPTIL.jpg'),
+(16, 'Imagen logo', 'imagen', 'logo.jpg'),
+(17, 'Imagen news condor', 'imagen', 'news_condor00.jpeg'),
+(18, 'Imagen news puma', 'imagen', 'news_puma00.jpg'),
+(19, 'Imagen ranita darwin', 'imagen', 'news_ranitadarwin00.jpg'),
+(20, 'Imagen zorro darwin', 'imagen', 'news_zorrodarwin00.jpg'),
+(21, 'Imagen piuchen INSECTIVORO', 'imagen', 'piuchenINSECTIVORO.jpg'),
+(22, 'Imagen pudú', 'imagen', 'pudu.jpg'),
+(23, 'Imagen pudú 2', 'imagen', 'pudu2.jpg'),
+(24, 'Imagen puma MAMIFERO', 'imagen', 'pumaMAMIFERO.jpg'),
+(25, 'Imagen puye PEZ', 'imagen', 'puyePEZ.jpg'),
+(26, 'Imagen rana chilena ANFIBIO', 'imagen', 'ranachilenaANFIBIO.jpg'),
+(27, 'Imagen zorro culpeo CARNIVORO', 'imagen', 'zorroculpeoCARNIVORO.jpg'),
+(28, 'Imagen zorzal OMNIVORO', 'imagen', 'zorzalOMNIVORO.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `especie`
+-- Table structure for table `especie`
 --
 
 CREATE TABLE `especie` (
@@ -110,46 +147,26 @@ CREATE TABLE `especie` (
   `gradoExtincion` int(11) DEFAULT NULL,
   `indicadorPeligro` tinyint(1) DEFAULT NULL,
   `ubicacion` text DEFAULT NULL,
-  `IdCategoria` int(11) DEFAULT NULL
+  `IdCategoria` int(11) DEFAULT NULL,
+  `imgEspecie` varchar(255) DEFAULT NULL,
+  `categoria` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `especie`
+-- Dumping data for table `especie`
 --
 
-INSERT INTO `especie` (`IdEspecie`, `nomCientifico`, `nomComun`, `descripcion`, `gradoExtincion`, `indicadorPeligro`, `ubicacion`) VALUES
-(1, 'Araucaria araucana', 'Araucaria', 'Árbol endémico de Chile, símbolo nacional.', 3, 1, 'lat:-38.7,long:-71.3'),
-(2, 'Fitzroya cupressoides', 'Alerce', 'Árbol milenario del sur de Chile.', 2, 1, 'lat:-42.5,long:-73.8'),
-(3, 'Nothofagus pumilio', 'Lenga', 'Árbol de hojas caducas presente en la Patagonia.', 1, 0, 'lat:-45.0,long:-72.0'),
-(4, 'Rhinoderma darwinii', 'Sapito de Darwin', 'Anfibio endémico en peligro de extinción.', 4, 1, 'lat:-39.8,long:-73.2'),
-(5, 'Puma concolor', 'Puma', 'Felino presente en diversas zonas de Chile.', 1, 0, 'lat:-33.5,long:-70.7'),
-(6, 'Phoenicopterus chilensis', 'Flamenco chileno', 'Ave de zonas salinas y lagunas.', 2, 1, 'lat:-27.0,long:-69.0'),
-(7, 'Loxodontomys micropus', 'Ratón orejudo', 'Roedor nativo de la zona austral.', 3, 1, 'lat:-51.7,long:-72.5'),
-(8, 'Deschampsia antarctica', 'Pasto antártico', 'Una de las dos especies de plantas con flores en la Antártida.', 1, 0, 'lat:-62.2,long:-58.9'),
-(9, 'Nothofagus betuloides', 'Coigüe de Magallanes', 'Árbol siempreverde del sur de Chile.', 2, 1, 'lat:-53.1,long:-70.9'),
-(10, 'Dromiciops gliroides', 'Monito del monte', 'Marsupial endémico de los bosques templados.', 4, 1, 'lat:-40.3,long:-72.1'),
-(11, 'Pudu puda', 'Pudú', 'Pequeño ciervo nativo del sur de Chile y Argentina, de hábitos tímidos y nocturnos.', 2, 1, 'lat:-41.9,long:-73.8');
+INSERT INTO `especie` (`IdEspecie`, `nomCientifico`, `nomComun`, `descripcion`, `gradoExtincion`, `indicadorPeligro`, `ubicacion`, `IdCategoria`, `imgEspecie`, `categoria`) VALUES
+(4, 'Rhinoderma darwinii', 'Sapito de Darwin', 'Anfibio endémico en peligro de extinción.', 4, 1, 'lat:-39.8,long:-73.2', 6, 'news_ranitadarwin00.jpg', 'Anfibios'),
+(5, 'Puma concolor', 'Puma', 'Felino presente en diversas zonas de Chile.', 1, 0, 'lat:-33.5,long:-70.7', 8, 'pumaMAMIFERO.jpg', 'Carnívoros'),
+(7, 'Loxodontomys micropus', 'Ratón orejudo', 'Roedor nativo de la zona austral.', 3, 1, 'lat:-51.7,long:-72.5', 1, 'ratonOrejudo00.jpg', 'Mamíferos'),
+(11, 'Pudu puda', 'Pudú', 'Pequeño ciervo nativo del sur de Chile y Argentina, de hábitos tímidos y nocturnos.', 2, 1, 'lat:-41.9,long:-73.8', 7, 'pudu.jpg', 'Herbívoros'),
+(12, 'Lycalopex culpaeus', 'Zorro culpeo', 'Zorro nativo del sur de América, adaptable y oportunista.', 2, 0, 'lat:-38.0,long:-70.0', 8, 'news_zorrodarwin00.jpg', 'Carnívoros');
 
 -- --------------------------------------------------------
 
--- Actualizar las categorías de las especies ya existentes
-
-UPDATE especie SET IdCategoria = 8 WHERE IdEspecie = 5;   -- Puma (Carnívoro)
-UPDATE especie SET IdCategoria = 7 WHERE IdEspecie = 11;  -- Pudú (Herbívoro)
-UPDATE especie SET IdCategoria = 8 WHERE IdEspecie = 12;  -- Zorro culpeo (Carnívoro)
-UPDATE especie SET IdCategoria = 1 WHERE IdEspecie IN (1, 2, 3, 7, 9, 10); -- Mamíferos generales
-UPDATE especie SET IdCategoria = 6 WHERE IdEspecie = 4;   -- Sapito de Darwin (Anfibio)
-UPDATE especie SET IdCategoria = 2 WHERE IdEspecie = 6;   -- Flamenco (Ave)
-UPDATE especie SET IdCategoria = 7 WHERE IdEspecie = 8;   -- Pasto antártico (Herbívoro)
-
-
-INSERT INTO especie (IdEspecie, nomCientifico, nomComun, descripcion, gradoExtincion, indicadorPeligro, ubicacion, IdCategoria)
-VALUES (12, 'Lycalopex culpaeus', 'Zorro culpeo', 'Zorro nativo del sur de América, adaptable y oportunista.', 2, 0, 'lat:-38.0,long:-70.0', 8);
-
-
-
 --
--- Estructura de tabla para la tabla `especieamenaza`
+-- Table structure for table `especieamenaza`
 --
 
 CREATE TABLE `especieamenaza` (
@@ -158,23 +175,18 @@ CREATE TABLE `especieamenaza` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `especieamenaza`
+-- Dumping data for table `especieamenaza`
 --
 
 INSERT INTO `especieamenaza` (`IdEspecie`, `IdAmenaza`) VALUES
-(1, 1),
-(2, 1),
 (4, 2),
 (5, 4),
-(6, 3),
-(7, 3),
-(9, 1),
-(10, 3);
+(7, 3);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `especiecontenidovisual`
+-- Table structure for table `especiecontenidovisual`
 --
 
 CREATE TABLE `especiecontenidovisual` (
@@ -182,26 +194,10 @@ CREATE TABLE `especiecontenidovisual` (
   `IdContenido` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `especiecontenidovisual`
---
-
-INSERT INTO `especiecontenidovisual` (`IdEspecie`, `IdContenido`) VALUES
-(1, 1),
-(2, 2),
-(3, 10),
-(4, 3),
-(5, 4),
-(6, 5),
-(7, 6),
-(8, 7),
-(9, 8),
-(10, 9);
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `especienoticia`
+-- Table structure for table `especienoticia`
 --
 
 CREATE TABLE `especienoticia` (
@@ -210,25 +206,18 @@ CREATE TABLE `especienoticia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `especienoticia`
+-- Dumping data for table `especienoticia`
 --
 
 INSERT INTO `especienoticia` (`IdEspecie`, `IdNoticia`) VALUES
-(1, 10),
-(2, 2),
-(3, 9),
 (4, 1),
 (5, 4),
-(6, 3),
-(7, 6),
-(8, 7),
-(9, 8),
-(10, 5);
+(7, 6);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `especiezonageografica`
+-- Table structure for table `especiezonageografica`
 --
 
 CREATE TABLE `especiezonageografica` (
@@ -237,25 +226,18 @@ CREATE TABLE `especiezonageografica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `especiezonageografica`
+-- Dumping data for table `especiezonageografica`
 --
 
 INSERT INTO `especiezonageografica` (`IdEspecie`, `IdZona`) VALUES
-(1, 2),
-(2, 2),
-(3, 3),
 (4, 2),
 (5, 1),
-(6, 4),
-(7, 3),
-(8, 5),
-(9, 3),
-(10, 2);
+(7, 3);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `favorito`
+-- Table structure for table `favorito`
 --
 
 CREATE TABLE `favorito` (
@@ -265,19 +247,17 @@ CREATE TABLE `favorito` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `favorito`
+-- Dumping data for table `favorito`
 --
 
 INSERT INTO `favorito` (`fk_IdEspecie`, `fk_IdUsuario`, `esFavorito`) VALUES
-(1, 1, 1),
-(2, 1, 1),
 (4, 2, 1),
 (5, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `foro`
+-- Table structure for table `foro`
 --
 
 CREATE TABLE `foro` (
@@ -287,7 +267,7 @@ CREATE TABLE `foro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `foro`
+-- Dumping data for table `foro`
 --
 
 INSERT INTO `foro` (`IdForo`, `titulo`, `descripcion`) VALUES
@@ -296,7 +276,7 @@ INSERT INTO `foro` (`IdForo`, `titulo`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `noticia`
+-- Table structure for table `noticia`
 --
 
 CREATE TABLE `noticia` (
@@ -304,29 +284,26 @@ CREATE TABLE `noticia` (
   `titulo` text NOT NULL,
   `resumen` text DEFAULT NULL,
   `urlOrigen` text DEFAULT NULL,
-  `fechaPublicacion` date DEFAULT NULL
+  `fechaPublicacion` date DEFAULT NULL,
+  `imgNoticia` varchar(255) DEFAULT NULL,
+  `fuente` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `noticia`
+-- Dumping data for table `noticia`
 --
 
-INSERT INTO `noticia` (`IdNoticia`, `titulo`, `resumen`, `urlOrigen`, `fechaPublicacion`) VALUES
-(1, 'Descubren nueva población de Sapito de Darwin', 'Investigadores hallan ejemplares en la Región de Los Ríos.', 'https://noticias.example.com/sapito', '2025-05-15'),
-(2, 'Alerce milenario es declarado Patrimonio Natural', 'El árbol más antiguo de Chile recibe reconocimiento internacional.', 'https://noticias.example.com/alerce', '2025-04-20'),
-(3, 'Flamencos regresan al Salar de Atacama', 'Aumento de población de flamencos en su hábitat natural.', 'https://noticias.example.com/flamenco', '2025-03-10'),
-(4, 'Puma avistado cerca de zonas urbanas', 'Autoridades llaman a la precaución tras avistamientos.', 'https://noticias.example.com/puma', '2025-02-05'),
-(5, 'Monito del monte en peligro crítico', 'Estudios revelan disminución drástica en su población.', 'https://noticias.example.com/monito', '2025-01-25'),
-(6, 'Ratón orejudo enfrenta nuevas amenazas', 'Cambio climático afecta su hábitat en la Patagonia.', 'https://noticias.example.com/raton', '2025-05-01'),
-(7, 'Pasto antártico muestra adaptaciones únicas', 'Investigación destaca su resistencia al frío extremo.', 'https://noticias.example.com/pasto', '2025-04-10'),
-(8, 'Coigüe de Magallanes bajo presión', 'Deforestación amenaza su supervivencia.', 'https://noticias.example.com/coigue', '2025-03-15'),
-(9, 'Lenga se adapta a cambios climáticos', 'Estudios muestran su resiliencia en la Patagonia.', 'https://noticias.example.com/lenga', '2025-02-20'),
-(10, 'Araucaria enfrenta plagas emergentes', 'Nuevas enfermedades afectan su crecimiento.', 'https://noticias.example.com/araucaria', '2025-01-30');
+INSERT INTO `noticia` (`IdNoticia`, `titulo`, `resumen`, `urlOrigen`, `fechaPublicacion`, `imgNoticia`, `fuente`) VALUES
+(1, 'Descubren nueva población de Sapito de Darwin', 'Investigadores hallan ejemplares en la Región de Los Ríos.', 'https://www.dw.com/es/descubren-nueva-poblaci%C3%B3n-de-sapito-de-darwin-en-chile/a-68842737', '2025-05-15', 'news_ranitadarwin00.jpg', 'DW.com'),
+(4, 'Puma avistado cerca de zonas urbanas', 'Autoridades llaman a la precaución tras avistamientos.', 'https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2023/12/05/puma-es-avistado-caminando-en-calle-de-penalolen-durante-la-noche.shtml', '2025-02-05', 'news_puma00.jpg', 'BioBio Chile'),
+(5, 'Monito del monte en peligro crítico', 'Estudios revelan disminución drástica en su población.', 'https://www.latercera.com/que-pasa/noticia/monito-del-monte-en-peligro-critico-de-extincion-unico-en-su-clase-y-exclusivo-de-chile/FHGV6SZ4N5G33MWCS3BOJ4R4UM/', '2025-01-25', 'monitoMonte00.jpg', 'La Tercera'),
+(6, 'Ratón orejudo enfrenta nuevas amenazas', 'Cambio climático afecta su hábitat en la Patagonia.', 'https://www.biobiochile.cl/noticias/ciencia-y-tecnologia/ciencia/2023/10/11/cambio-climatico-y-perdida-de-habitat-amenazan-al-raton-orejudo-un-roedor-unico-en-chile.shtml', '2025-05-01', 'ratonOrejudo00.jpg', 'BioBio Chile'),
+(11, 'Titulado estudió los nidos de los cóndores para titularse', 'Tomás Dillon investigó los nidos del cóndor andino para su tesis, identificando que factores como altura y pendiente son cruciales para su nidificación. Los hallazgos ayudan en la conservación de la especie.', 'https://forestal.uchile.cl/noticias/224628/titulado-estudio-los-nidos-de-los-condores-para-titularse?utm_source=chatgpt.com', '2024-12-20', 'news_condor00.jpeg', 'Universidad de Chile');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `perfil`
+-- Table structure for table `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -337,51 +314,19 @@ CREATE TABLE `perfil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `perfil`
+-- Dumping data for table `perfil`
 --
 
 INSERT INTO `perfil` (`id_perfil`, `tipo_perfil`, `foto`, `descripcion`) VALUES
+(0, 'Administrador', 'admin.jpg', 'Usuario con privilegios administrativos completos.'),
 (1, 'Investigador', 'foto1.jpg', 'Especialista en flora nativa de Chile.'),
 (2, 'Naturalista', 'foto2.jpg', 'Apasionado por la fauna chilena.');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `publicacion`
+-- Table structure for table `publicacion`
 --
-
--- --------------------------------------------------------
--- --------------------------------------------------------
--- --------------------------------------------------------
-
-CREATE TABLE `categoria` (
-  `IdCategoria` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(100) NOT NULL,
-  `descripcion` TEXT DEFAULT NULL,
-  PRIMARY KEY (`IdCategoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-INSERT INTO categoria (nombre) VALUES
-('Mamíferos'),
-('Aves'),
-('Reptiles'),
-('Insectos'),
-('Peces'),
-('Anfibios'),
-('Herbívoros'),
-('Carnívoros'),
-('Insectívoros'),
-('Omnívoros');
-
-
-
-
--- --------------------------------------------------------
--- --------------------------------------------------------
--- --------------------------------------------------------
-
-
-
 
 CREATE TABLE `publicacion` (
   `IdPublicacion` int(11) NOT NULL,
@@ -392,7 +337,7 @@ CREATE TABLE `publicacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `publicacion`
+-- Dumping data for table `publicacion`
 --
 
 INSERT INTO `publicacion` (`IdPublicacion`, `contenido`, `fecha`, `fk_IdUsuario`, `fk_IdForo`) VALUES
@@ -404,7 +349,7 @@ INSERT INTO `publicacion` (`IdPublicacion`, `contenido`, `fecha`, `fk_IdUsuario`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -416,17 +361,18 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`IdUsuario`, `correo`, `contrasena`, `nomUsuario`, `id_perfil`) VALUES
 (1, 'ana.perez@example.com', 'contrasena123', 'AnaPerez', 1),
-(2, 'carlos.lopez@example.com', 'contrasena456', 'CarlosLopez', 2);
+(2, 'carlos.lopez@example.com', 'contrasena456', 'CarlosLopez', 2),
+(3, 'edu@hola.com', '$2b$10$kilI6kZqtLhNQaMIEis6fOmXbvX.cBnWLW6ARLvWuHewsKTwoQabm', 'edu', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `zonageografica`
+-- Table structure for table `zonageografica`
 --
 
 CREATE TABLE `zonageografica` (
@@ -436,7 +382,7 @@ CREATE TABLE `zonageografica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `zonageografica`
+-- Dumping data for table `zonageografica`
 --
 
 INSERT INTO `zonageografica` (`IdZona`, `nomZona`, `descripcion`) VALUES
@@ -447,17 +393,23 @@ INSERT INTO `zonageografica` (`IdZona`, `nomZona`, `descripcion`) VALUES
 (5, 'Zona Antártica', 'Territorio chileno en la Antártida.');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `amenaza`
+-- Indexes for table `amenaza`
 --
 ALTER TABLE `amenaza`
   ADD PRIMARY KEY (`IdAmenaza`);
 
 --
--- Indices de la tabla `comentario`
+-- Indexes for table `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`IdCategoria`);
+
+--
+-- Indexes for table `comentario`
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`IdComentario`),
@@ -465,79 +417,73 @@ ALTER TABLE `comentario`
   ADD KEY `fk_IdPublicacion` (`fk_IdPublicacion`);
 
 --
--- Indices de la tabla `contenidovisual`
+-- Indexes for table `contenidovisual`
 --
 ALTER TABLE `contenidovisual`
   ADD PRIMARY KEY (`IdContenido`);
 
 --
--- Indices de la tabla `especie`
+-- Indexes for table `especie`
 --
 ALTER TABLE `especie`
-  ADD PRIMARY KEY (`IdEspecie`);
-
-ALTER TABLE `especie`
-  ADD CONSTRAINT `fk_especie_categoria`
-  FOREIGN KEY (`IdCategoria`) REFERENCES `categoria` (`IdCategoria`)
-  ON DELETE SET NULL ON UPDATE CASCADE;
-
-
+  ADD PRIMARY KEY (`IdEspecie`),
+  ADD KEY `fk_especie_categoria` (`IdCategoria`);
 
 --
--- Indices de la tabla `especieamenaza`
+-- Indexes for table `especieamenaza`
 --
 ALTER TABLE `especieamenaza`
   ADD PRIMARY KEY (`IdEspecie`,`IdAmenaza`),
   ADD KEY `IdAmenaza` (`IdAmenaza`);
 
 --
--- Indices de la tabla `especiecontenidovisual`
+-- Indexes for table `especiecontenidovisual`
 --
 ALTER TABLE `especiecontenidovisual`
   ADD PRIMARY KEY (`IdEspecie`,`IdContenido`),
   ADD KEY `IdContenido` (`IdContenido`);
 
 --
--- Indices de la tabla `especienoticia`
+-- Indexes for table `especienoticia`
 --
 ALTER TABLE `especienoticia`
   ADD PRIMARY KEY (`IdEspecie`,`IdNoticia`),
   ADD KEY `IdNoticia` (`IdNoticia`);
 
 --
--- Indices de la tabla `especiezonageografica`
+-- Indexes for table `especiezonageografica`
 --
 ALTER TABLE `especiezonageografica`
   ADD PRIMARY KEY (`IdEspecie`,`IdZona`),
   ADD KEY `IdZona` (`IdZona`);
 
 --
--- Indices de la tabla `favorito`
+-- Indexes for table `favorito`
 --
 ALTER TABLE `favorito`
   ADD PRIMARY KEY (`fk_IdEspecie`,`fk_IdUsuario`),
   ADD KEY `fk_IdUsuario` (`fk_IdUsuario`);
 
 --
--- Indices de la tabla `foro`
+-- Indexes for table `foro`
 --
 ALTER TABLE `foro`
   ADD PRIMARY KEY (`IdForo`);
 
 --
--- Indices de la tabla `noticia`
+-- Indexes for table `noticia`
 --
 ALTER TABLE `noticia`
   ADD PRIMARY KEY (`IdNoticia`);
 
 --
--- Indices de la tabla `perfil`
+-- Indexes for table `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`id_perfil`);
 
 --
--- Indices de la tabla `publicacion`
+-- Indexes for table `publicacion`
 --
 ALTER TABLE `publicacion`
   ADD PRIMARY KEY (`IdPublicacion`),
@@ -545,137 +491,149 @@ ALTER TABLE `publicacion`
   ADD KEY `fk_IdForo` (`fk_IdForo`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`IdUsuario`),
   ADD KEY `id_perfil` (`id_perfil`);
 
 --
--- Indices de la tabla `zonageografica`
+-- Indexes for table `zonageografica`
 --
 ALTER TABLE `zonageografica`
   ADD PRIMARY KEY (`IdZona`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `amenaza`
+-- AUTO_INCREMENT for table `amenaza`
 --
 ALTER TABLE `amenaza`
   MODIFY `IdAmenaza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `comentario`
+-- AUTO_INCREMENT for table `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `IdCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
   MODIFY `IdComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `contenidovisual`
+-- AUTO_INCREMENT for table `contenidovisual`
 --
 ALTER TABLE `contenidovisual`
-  MODIFY `IdContenido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `IdContenido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT de la tabla `especie`
+-- AUTO_INCREMENT for table `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `IdEspecie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `IdEspecie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de la tabla `foro`
+-- AUTO_INCREMENT for table `foro`
 --
 ALTER TABLE `foro`
   MODIFY `IdForo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `noticia`
+-- AUTO_INCREMENT for table `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `IdNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `IdNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `perfil`
+-- AUTO_INCREMENT for table `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `publicacion`
+-- AUTO_INCREMENT for table `publicacion`
 --
 ALTER TABLE `publicacion`
   MODIFY `IdPublicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `zonageografica`
+-- AUTO_INCREMENT for table `zonageografica`
 --
 ALTER TABLE `zonageografica`
   MODIFY `IdZona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `comentario`
+-- Constraints for table `comentario`
 --
 ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`fk_IdUsuario`) REFERENCES `usuario` (`IdUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`fk_IdPublicacion`) REFERENCES `publicacion` (`IdPublicacion`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `especieamenaza`
+-- Constraints for table `especie`
+--
+ALTER TABLE `especie`
+  ADD CONSTRAINT `fk_especie_categoria` FOREIGN KEY (`IdCategoria`) REFERENCES `categoria` (`IdCategoria`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `especieamenaza`
 --
 ALTER TABLE `especieamenaza`
   ADD CONSTRAINT `especieamenaza_ibfk_1` FOREIGN KEY (`IdEspecie`) REFERENCES `especie` (`IdEspecie`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `especieamenaza_ibfk_2` FOREIGN KEY (`IdAmenaza`) REFERENCES `amenaza` (`IdAmenaza`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `especiecontenidovisual`
+-- Constraints for table `especiecontenidovisual`
 --
 ALTER TABLE `especiecontenidovisual`
   ADD CONSTRAINT `especiecontenidovisual_ibfk_1` FOREIGN KEY (`IdEspecie`) REFERENCES `especie` (`IdEspecie`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `especiecontenidovisual_ibfk_2` FOREIGN KEY (`IdContenido`) REFERENCES `contenidovisual` (`IdContenido`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `especienoticia`
+-- Constraints for table `especienoticia`
 --
 ALTER TABLE `especienoticia`
   ADD CONSTRAINT `especienoticia_ibfk_1` FOREIGN KEY (`IdEspecie`) REFERENCES `especie` (`IdEspecie`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `especienoticia_ibfk_2` FOREIGN KEY (`IdNoticia`) REFERENCES `noticia` (`IdNoticia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `especiezonageografica`
+-- Constraints for table `especiezonageografica`
 --
 ALTER TABLE `especiezonageografica`
   ADD CONSTRAINT `especiezonageografica_ibfk_1` FOREIGN KEY (`IdEspecie`) REFERENCES `especie` (`IdEspecie`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `especiezonageografica_ibfk_2` FOREIGN KEY (`IdZona`) REFERENCES `zonageografica` (`IdZona`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `favorito`
+-- Constraints for table `favorito`
 --
 ALTER TABLE `favorito`
   ADD CONSTRAINT `favorito_ibfk_1` FOREIGN KEY (`fk_IdEspecie`) REFERENCES `especie` (`IdEspecie`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `favorito_ibfk_2` FOREIGN KEY (`fk_IdUsuario`) REFERENCES `usuario` (`IdUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `publicacion`
+-- Constraints for table `publicacion`
 --
 ALTER TABLE `publicacion`
   ADD CONSTRAINT `publicacion_ibfk_1` FOREIGN KEY (`fk_IdUsuario`) REFERENCES `usuario` (`IdUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `publicacion_ibfk_2` FOREIGN KEY (`fk_IdForo`) REFERENCES `foro` (`IdForo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `usuario`
+-- Constraints for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id_perfil`) ON UPDATE CASCADE;

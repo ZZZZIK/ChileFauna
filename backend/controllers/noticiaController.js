@@ -26,13 +26,13 @@ const NoticiaController = {
 
   // Crear una nueva noticia
   store: (req, res) => {
-    const { titulo, resumen, urlOrigen, fechaPublicacion } = req.body;
+    const { titulo, resumen, urlOrigen, fechaPublicacion, imgNoticia } = req.body;
 
-    if (!titulo || !resumen || !urlOrigen || !fechaPublicacion) {
+    if (!titulo || !resumen || !urlOrigen || !fechaPublicacion || !imgNoticia || !fuente) {
       return res.status(400).json({ error: 'Faltan campos requeridos' });
     }
 
-    const nuevaNoticia = { titulo, resumen, urlOrigen, fechaPublicacion };
+    const nuevaNoticia = { titulo, resumen, urlOrigen, fechaPublicacion, imgNoticia };
 
     NoticiaModel.create(nuevaNoticia, (err, result) => {
       if (err) return res.status(500).json({ error: err });
@@ -43,9 +43,13 @@ const NoticiaController = {
   // Actualizar noticia existente
   update: (req, res) => {
     const id = req.params.id;
-    const { titulo, resumen, urlOrigen, fechaPublicacion } = req.body;
+    const { titulo, resumen, urlOrigen, fechaPublicacion, imgNoticia, fuente } = req.body;
 
-    const noticiaActualizada = { titulo, resumen, urlOrigen, fechaPublicacion };
+    if (!titulo || !resumen || !urlOrigen || !fechaPublicacion || !imgNoticia || !fuente) {
+      return res.status(400).json({ error: 'Faltan campos requeridos' });
+    }
+
+    const noticiaActualizada = { titulo, resumen, urlOrigen, fechaPublicacion, imgNoticia, fuente };
 
     NoticiaModel.update(id, noticiaActualizada, (err, result) => {
       if (err) return res.status(500).json({ error: err });
@@ -55,6 +59,7 @@ const NoticiaController = {
       res.json({ message: 'Noticia actualizada', noticiaId: id, ...noticiaActualizada });
     });
   },
+
 
   // Eliminar noticia
   destroy: (req, res) => {

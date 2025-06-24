@@ -3,14 +3,14 @@
   <h2>Noticias</h2>
 
   <div class="noticias-grid">
-    <ion-card *ngFor="let noticia of noticias" [href]="noticia.enlace" target="_blank" rel="noopener">
-      <img [src]="noticia.imagen" alt="imagen noticia" />
+  <ion-card *ngFor="let noticia of noticias" [href]="noticia.urlOrigen" target="_blank" rel="noopener">
+      <img [src]="'assets/imgs/' + noticia.imgNoticia" alt="imagen noticia" />
       <ion-card-header>
         <ion-card-title>{{ noticia.titulo }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <p><strong>{{ noticia.fuente }}</strong></p>
-        <p>{{ noticia.descripcion }}</p>
+        <p>{{ noticia.resumen }}</p>
       </ion-card-content>
     </ion-card>
   </div>

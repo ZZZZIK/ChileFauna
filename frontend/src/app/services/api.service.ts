@@ -10,20 +10,20 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getCategorias(): Observable<any> {
-    return this.http.get('http://localhost/ChileFaunaAPI/get_categorias.php');
+  getCategorias(limit: number = 100, offset: number = 0): Observable<any> {
+    return this.http.get(`${this.baseUrl}/categorias?limit=${limit}&offset=${offset}`);
   }
 
-  getEspecies(): Observable<any> {
-    return this.http.get(`http://localhost/ChileFaunaAPI/get_especies.php`);
+  getUsuarios(limit: number = 100, offset: number = 0): Observable<any> {
+    return this.http.get(`${this.baseUrl}/usuarios?limit=${limit}&offset=${offset}`);
   }
 
-  getNoticias(): Observable<any> {
-    return this.http.get(`http://localhost/ChileFaunaAPI/get_noticias.php`);
+  getEspecies(limit: number = 100, offset: number = 0): Observable<any> {
+    return this.http.get(`${this.baseUrl}/especies?limit=${limit}&offset=${offset}`);
   }
-
-  getUsuarios(): Observable<any> {
-    return this.http.get(`http://localhost/ChileFaunaAPI/get_usuarios.php`);
+  
+  getNoticias(limit: number = 100, offset: number = 0): Observable<any> {
+    return this.http.get(`${this.baseUrl}/noticias?limit=${limit}&offset=${offset}`);
   }
 
 

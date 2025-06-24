@@ -3,13 +3,19 @@ const db = require('../config/db');
 const CategoriaModel = {
   // Obtener todas las categorías paginado y optimizado
   getAllPaged: (limit, offset, callback) => {
-    const query = 'SELECT IdCategoria, nombre FROM categoria LIMIT ? OFFSET ?';
+  const query = `
+    SELECT IdCategoria, nombre, descripcion, imgPrincipal
+    FROM categoria
+    LIMIT ? OFFSET ?`;
     db.query(query, [limit, offset], callback);
   },
 
   // Obtener una categoría por ID
   getById: (id, callback) => {
-    const query = 'SELECT IdCategoria, nombre, descripcion FROM categoria WHERE IdCategoria = ?';
+    const query = `
+    SELECT IdCategoria, nombre, descripcion, imgPrincipal
+    FROM categoria
+    WHERE IdCategoria = ?`;
     db.query(query, [id], callback);
   },
 
@@ -21,8 +27,12 @@ const CategoriaModel = {
 
   // Actualizar categoría por ID
   update: (id, data, callback) => {
-    const query = 'UPDATE categoria SET nombre = ?, descripcion = ? WHERE IdCategoria = ?';
-    db.query(query, [data.nombre, data.descripcion, id], callback);
+    const query = `
+      UPDATE categoria 
+      SET nombre = ?, descripcion = ?, imgPrincipal = ? 
+      WHERE IdCategoria = ?`;
+
+    db.query(query, [data.nombre, data.descripcion, data.imgPrincipal, id], callback);
   },
 
   // Eliminar una categoría por ID

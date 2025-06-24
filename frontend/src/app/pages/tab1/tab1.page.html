@@ -8,7 +8,7 @@
   <div class="grid-categorias">
     
     <ion-card *ngFor="let categoria of categorias" [routerLink]="categoria.ruta">
-      <img [src]="categoria.imagen" />
+    <img [src]="'assets/imgs/' + categoria.imgPrincipal" alt="{{ categoria.nombreCategoria }}" />
       <ion-card-content>
         {{ categoria.nombre }}
       </ion-card-content>

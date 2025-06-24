@@ -13,8 +13,8 @@ export class Tab2Page implements OnInit {
   textoBusqueda: string = '';
   categoriaSeleccionada: string = '';
 
-  animales = [
-    {
+  animales: any[] = [];
+   /* {
       nombre: 'Pudú',
       especie: 'Pudu puda',
       categoria: 'Herbivoro',
@@ -38,13 +38,14 @@ export class Tab2Page implements OnInit {
       favorito: true,
       descripcion: 'Este zorro es el segundo cánido más grande de Sudamérica, conocido por su pelaje rojizo.'
     }
-  ];
+  ]*/;
 
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.apiService.getEspecies().subscribe((data) => {
       this.animales = data;
+      console.log(this.animales); 
     });
   }
 
@@ -54,12 +55,12 @@ export class Tab2Page implements OnInit {
     const texto = this.textoBusqueda.toLowerCase();
 
     return this.animales.filter(animal => {
-      const nombre = animal.nombre ? animal.nombre.toLowerCase() : '';
-      const especie = animal.especie ? animal.especie.toLowerCase() : '';
+      const nomComun = animal.nomComun ? animal.nomComun.toLowerCase() : '';
+      const nomCientifico = animal.nomCientifico ? animal.nomCientifico.toLowerCase() : '';
       const categoria = animal.categoria ? animal.categoria : '';
 
       return (
-        (nombre.includes(texto) || especie.includes(texto)) &&
+        (nomComun.includes(texto) || nomCientifico.includes(texto)) &&
         (this.categoriaSeleccionada === '' || categoria === this.categoriaSeleccionada)
       );
     });

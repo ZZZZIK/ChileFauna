@@ -9,7 +9,8 @@ import { ApiService } from '../../services/api.service';
 })
 
 export class Tab3Page {
-  noticias = [
+  noticias: any[] = [];
+  /* = [
     {
       titulo: 'Cámara capta a puma que se lleva a gato en la comuna de Los Lagos',
       descripcion: 'Una cámara de seguridad en Los Lagos, región de Los Ríos, captó a un puma llevándose un gato doméstico, resolviendo la misteriosa desaparición de varias mascotas.',
@@ -37,8 +38,8 @@ export class Tab3Page {
       imagen: 'assets/imgs/news_ranitadarwin00.jpg',
       fuente: 'BioBio Chile',
       enlace: 'https://www.biobiochile.cl/especial/aqui-tierra/noticias/2024/12/09/las-ranitas-de-darwin-estan-al-borde-de-la-extincion-en-chile-tras-compleja-pandemia-de-los-anfibios.shtml'
-    }
-  ];
+    }*/
+  ;
 
   constructor(private apiService: ApiService) {}
 
