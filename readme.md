@@ -1,6 +1,5 @@
 # Proyecto de Aplicación Web y Móvil: ChileFauna 
 
-
 ## Autores:
 - Miguel Bernales
 - Pablo Daza
